@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F23B46301AAE27AC00BBFB7A"
-               BuildableName = "RBLogger.framework"
-               BlueprintName = "RBLogger"
-               ReferencedContainer = "container:RBLogger.xcodeproj">
+               BuildableName = "LogKit.framework"
+               BlueprintName = "LogKit"
+               ReferencedContainer = "container:LogKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F23B463B1AAE27AC00BBFB7A"
-               BuildableName = "RBLoggerTests.xctest"
-               BlueprintName = "RBLoggerTests"
-               ReferencedContainer = "container:RBLogger.xcodeproj">
+               BuildableName = "LogKitTests.xctest"
+               BlueprintName = "LogKitTests"
+               ReferencedContainer = "container:LogKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F23B463B1AAE27AC00BBFB7A"
-               BuildableName = "RBLoggerTests.xctest"
-               BlueprintName = "RBLoggerTests"
-               ReferencedContainer = "container:RBLogger.xcodeproj">
+               BuildableName = "LogKitTests.xctest"
+               BlueprintName = "LogKitTests"
+               ReferencedContainer = "container:LogKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F23B46301AAE27AC00BBFB7A"
-            BuildableName = "RBLogger.framework"
-            BlueprintName = "RBLogger"
-            ReferencedContainer = "container:RBLogger.xcodeproj">
+            BuildableName = "LogKit.framework"
+            BlueprintName = "LogKit"
+            ReferencedContainer = "container:LogKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F23B46301AAE27AC00BBFB7A"
-            BuildableName = "RBLogger.framework"
-            BlueprintName = "RBLogger"
-            ReferencedContainer = "container:RBLogger.xcodeproj">
+            BuildableName = "LogKit.framework"
+            BlueprintName = "LogKit"
+            ReferencedContainer = "container:LogKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F23B46301AAE27AC00BBFB7A"
-            BuildableName = "RBLogger.framework"
-            BlueprintName = "RBLogger"
-            ReferencedContainer = "container:RBLogger.xcodeproj">
+            BuildableName = "LogKit.framework"
+            BlueprintName = "LogKit"
+            ReferencedContainer = "container:LogKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

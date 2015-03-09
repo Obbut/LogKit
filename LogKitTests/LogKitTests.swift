@@ -1,6 +1,6 @@
 //
-//  RBLoggerTests.swift
-//  RBLogger
+//  LogKitTests.swift
+//  LogKit
 //
 //  Created by Robbert Brandsma on 27-02-15.
 //  Copyright (c) 2015 Robbert Brandsma. All rights reserved.
@@ -8,21 +8,24 @@
 
 import UIKit
 import XCTest
-import RBLogger
+import LogKit
 
-class RBLoggerTests: XCTestCase {
-    
+let log = Logger()
+
+class LogKitTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-//                RBLogger.sharedLogger.enableXcodeColorsSupport = true
+        log.enableXcodeColorsSupport = true
+        log.useForOperators()
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testLoggingSuffixOperators() {
         "This is a verbose logging test"<?
         "This is a debug logging test"<!
@@ -30,7 +33,7 @@ class RBLoggerTests: XCTestCase {
         "This is a warning logging test"<!?
         "This is a error logging test"<!!
     }
-    
+
     func testLoggingInfixOperators() {
         XCTAssert("This should log true: " >? true, "Verbose infix operator")
         XCTAssertFalse("This should log false: " >! false, "Debug infix operator")
@@ -38,30 +41,30 @@ class RBLoggerTests: XCTestCase {
         XCTAssert("Testing the Warning operator: " >!? true, "Warning infix operator")
         XCTAssertFalse("Testing the Error operator: " >!! false, "Error infix operator")
     }
-    
+
     func testLoggingFunctions() {
-        RBVerbose("This will be logged as verbose")
-        RBDebug("This is a debug log message")
-        RBInfo("This is an info log message")
-        RBWarning("This is a warning message")
-        RBError("And finally, an error log message")
+        log.verbose("This will be logged as verbose")
+        log.debug("This is a debug log message")
+        log.info("This is an info log message")
+        log.warning("This is a warning message")
+        log.error("And finally, an error log message")
     }
-    
+
     func testCustomLogger() {
-        let myLogger = RBLogger()
+        let myLogger = Logger()
         myLogger.enableXcodeColorsSupport = true
         myLogger.logElements = ["Some static text in front...", Static.LogMessage, "and that was logged from file", Static.FileName]
         myLogger.info("Wooohooo info message")
-        
+
         myLogger.logColors = [
             .Verbose: UIColor.yellowColor(),
             .Error: UIColor.greenColor()
         ]
-        
+
         myLogger.error("This is an error message but it should be green")
-        RBError("This however, should be red")
-        
+        log.error("This however, should be red")
+
         myLogger.info("The color for this log level is undefined, so it should be black")
     }
-    
+
 }
