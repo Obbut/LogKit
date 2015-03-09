@@ -10,6 +10,7 @@
 		F23B46371AAE27AC00BBFB7A /* RBLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = F23B46361AAE27AC00BBFB7A /* RBLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23B463D1AAE27AC00BBFB7A /* RBLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23B46311AAE27AC00BBFB7A /* RBLogger.framework */; };
 		F23B46441AAE27AC00BBFB7A /* RBLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23B46431AAE27AC00BBFB7A /* RBLoggerTests.swift */; };
+		F23B464E1AAE285200BBFB7A /* RBLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23B464D1AAE285200BBFB7A /* RBLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		F23B463C1AAE27AC00BBFB7A /* RBLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RBLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B46431AAE27AC00BBFB7A /* RBLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBLoggerTests.swift; sourceTree = "<group>"; };
+		F23B464D1AAE285200BBFB7A /* RBLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBLogger.swift; sourceTree = "<group>"; };
+		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; explicitFileType = compiled; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 		F23B46271AAE27AC00BBFB7A = {
 			isa = PBXGroup;
 			children = (
+				F23B464F1AAE29AF00BBFB7A /* README.md */,
 				F23B46331AAE27AC00BBFB7A /* RBLogger */,
 				F23B46401AAE27AC00BBFB7A /* RBLoggerTests */,
 				F23B46321AAE27AC00BBFB7A /* Products */,
@@ -73,6 +77,7 @@
 			children = (
 				F23B46361AAE27AC00BBFB7A /* RBLogger.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
+				F23B464D1AAE285200BBFB7A /* RBLogger.swift */,
 			);
 			path = RBLogger;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23B464E1AAE285200BBFB7A /* RBLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +329,7 @@
 		F23B46481AAE27AC00BBFB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +339,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F23B46491AAE27AC00BBFB7A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
