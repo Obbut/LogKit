@@ -5,7 +5,8 @@ LogKit is an easy to use logging library for Swift projects, written in Swift. I
 
 You can easily log trough a shared logger instance like this:
 
-	let log = Logger()
+	let log = Logger() // Probably in your app delegate
+	
 	log.verbose("This will be logged as verbose")
 	log.debug("This is a debug log message")
 	log.info("This is an info log message")
@@ -22,11 +23,11 @@ Which results in:
 
 Optionally, if you have XcodeColors installed, you can enable support for it like this:
 
-	LogKit.sharedLogger.enableXcodeColorsSupport = true
+	log.enableXcodeColorsSupport = true
 
 If you don't like the standard logging markup you can change it to your taste:
 
-	LogKit.sharedLogger.logElements = ["Some static text in front...", Static.LogMessage, "and that was logged from file", Static.FileName]
+	log.logElements = ["Some static text in front...", Static.LogMessage, "and that was logged from file", Static.FileName]
 
 In the logElements array you can use the following values:
 
@@ -78,6 +79,10 @@ The infix operators log the entity on the right side, prefixed by string on the 
 LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Changelog
+
+### 0.2.0
+* Rename from RBLogger to LogKit
+* Changed the names of all classes, structs, etc
 
 ### 0.1.0
 First version with the following features:
