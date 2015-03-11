@@ -78,6 +78,12 @@ The infix operators log the entity on the right side, prefixed by string on the 
 
 LogKit is available under the MIT license. See the LICENSE file for more info.
 
+## Upcoming Features
+* Subclassable log destination class
+* Subclass on the log destination class for logging to a network destination
+* Web based viewer for logs
+* Better logging operators
+
 ## Changelog
 
 ### 0.2.0
@@ -94,3 +100,4 @@ First version with the following features:
 * Customizable log messages
 * Customizable colors
 * Logging trough multiple logging instances or the shared instance
+`
