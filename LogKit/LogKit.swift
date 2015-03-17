@@ -17,7 +17,7 @@ public protocol LogKitElement {
 }
 
 public enum LogKitStaticElement: LogKitElement {
-    case FullFilePath, FileName, FunctionName, LineNumber, ColumnNumber, LogMessage, LogLevel, Custom
+    case FullFilePath, FileName, FunctionName, LineNumber, ColumnNumber, LogMessage, LogLevel, Contained
 
     public var stringValue: String { return self.description }
     public var staticValue: LogKitStaticElement { return self }
@@ -34,12 +34,12 @@ public enum LogKitStaticElement: LogKitElement {
             return "Line Number"
         case .ColumnNumber:
             return "Column Number"
-        case .LogMessage:
-            return "Log Message"
         case .LogLevel:
             return "Log Level"
-        case .Custom:
-            return "Custom"
+        case .Contained:
+            return "Contained"
+        case .LogMessage:
+            return "Log Message"
         }
     }
 }
@@ -48,7 +48,7 @@ public typealias Static = LogKitStaticElement
 
 extension String: LogKitElement {
     public var stringValue: String { return self }
-    public var staticValue: LogKitStaticElement { return .Custom }
+    public var staticValue: LogKitStaticElement { return .Contained }
 }
 
 // MARK: Log Level
@@ -140,12 +140,12 @@ public class Logger {
                 logMessage += String(line)
             case .ColumnNumber:
                 logMessage += String(column)
-            case .LogMessage:
-                logMessage += message
             case .LogLevel:
                 logMessage += level.description
-            case .Custom:
+            case .Contained:
                 logMessage += element.stringValue
+            case .LogMessage:
+                logMessage += message
             }
 
             // Add separator if this isn't the last element
