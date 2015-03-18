@@ -6,21 +6,14 @@
 //  Copyright (c) 2015 Robbert Brandsma. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: Logger Element
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-public protocol LogKitElement {
-    var stringValue: String { get }
-    var staticValue: LogKitStaticElement { get }
-}
-
-public enum LogKitStaticElement: LogKitElement {
-    case FullFilePath, FileName, FunctionName, LineNumber, ColumnNumber, LogMessage, LogLevel, Contained
-    
-    public var stringValue: String { return self.description }
-    public var staticValue: LogKitStaticElement { return self }
+public enum LogKitElement {
+    case FullFilePath, FileName, FunctionName, LineNumber, ColumnNumber, LogMessage, LogLevel
+    case Static(String)
     
     public var description: String {
         switch self {
@@ -36,17 +29,10 @@ public enum LogKitStaticElement: LogKitElement {
             return "Column Number"
         case .LogLevel:
             return "Log Level"
-        case .Contained:
-            return "Contained"
+        case let .Static(text):
+            return text
         case .LogMessage:
             return "Log Message"
         }
     }
-}
-
-public typealias Static = LogKitStaticElement
-
-extension String: LogKitElement {
-    public var stringValue: String { return self }
-    public var staticValue: LogKitStaticElement { return .Contained }
 }

@@ -46,7 +46,7 @@ public class Logger {
     public init() { }
 
     // MARK: - Settings
-    public var logElements: [LogKitElement] = ["[", Static.LogLevel, "]", Static.FileName, Static.FunctionName, Static.LogMessage]
+    public var logElements: [LogKitElement] = [.Static("["), .LogLevel, .Static("]"), .FileName, .FunctionName, .LogMessage]
     public var logElementSeparator = " "
 
     public var enableXcodeColorsSupport = false
@@ -86,7 +86,7 @@ public class Logger {
 
         for (index, element) in enumerate(logElements) {
             // Concatenate the current element:
-            switch element.staticValue {
+            switch element {
             case .FileName:
                 logMessage += file.lastPathComponent
             case .FullFilePath:
@@ -99,8 +99,8 @@ public class Logger {
                 logMessage += String(column)
             case .LogLevel:
                 logMessage += level.description
-            case .Contained:
-                logMessage += element.stringValue
+            case let .Static(text):
+                logMessage += text
             case .LogMessage:
                 logMessage += message
             }

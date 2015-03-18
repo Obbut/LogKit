@@ -53,7 +53,7 @@ class LogKitTests: XCTestCase {
     func testCustomLogger() {
         let myLogger = Logger()
         myLogger.enableXcodeColorsSupport = true
-        myLogger.logElements = ["Some static text in front...", Static.LogMessage, "and that was logged from file", Static.FileName]
+        myLogger.logElements = [.Static("Some static text in front..."), .LogMessage, .Static("and that was logged from file"), .FileName]
         myLogger.info("Wooohooo info message")
 
         myLogger.logColors = [
@@ -68,7 +68,7 @@ class LogKitTests: XCTestCase {
     }
     
     func testLogMessage() {
-        var message = LogMessage(text: "text", logLevel: .Info, function: __FUNCTION__, fullFilePath: __FILE__, line: __LINE__, column: __COLUMN__, elements: [Static.LogLevel])
+        var message = LogMessage(text: "text", logLevel: .Info, function: __FUNCTION__, fullFilePath: __FILE__, line: __LINE__, column: __COLUMN__, elements: [.LogLevel])
         XCTAssertEqual(message.loggableText, "Info", "Loglevel output not correct")
     }
 }

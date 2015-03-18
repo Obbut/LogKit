@@ -72,9 +72,9 @@ public struct LogMessage {
         get {
             var attributedElements = [NSAttributedString]()
             for element: LogKitElement in logElements {
-                switch element.staticValue {
-                case .Contained:
-                    attributedElements += [NSAttributedString(string: element.stringValue)]
+                switch element {
+                case let .Static(text):
+                    attributedElements += [NSAttributedString(string: text)]
                 case .FileName:
                     attributedElements += [attributedFilename]
                 case .FullFilePath:
