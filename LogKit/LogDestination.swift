@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol LogDestination {
+public protocol LogDestination {
     func log(message: LogMessage)
 }

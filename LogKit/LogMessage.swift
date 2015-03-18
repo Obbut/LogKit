@@ -36,6 +36,12 @@ public struct LogMessage {
     public var attributedText: NSAttributedString
     public var logElements: [LogKitElement]
     
+    public var attributedElementSepearator: NSAttributedString = NSAttributedString(string: " ")
+    public var elementSeparator: String {
+        get { return attributedElementSepearator.string }
+        set { attributedElementSepearator = NSAttributedString(string: elementSeparator) }
+    }
+    
     public var logLevel: LogKitLevel
     public var attributedLogLevel: NSAttributedString { return NSAttributedString(string: logLevel.description) }
     
@@ -60,7 +66,11 @@ public struct LogMessage {
         get {
             var loggableAttributedText = NSMutableAttributedString()
             
-            for element: NSAttributedString in renderedAttributedElements {
+            for (index, element) in enumerate(renderedAttributedElements) {
+                if index > 0 {
+                    loggableAttributedText.appendAttributedString(attributedElementSepearator)
+                }
+                
                 loggableAttributedText.appendAttributedString(element)
             }
             
@@ -71,7 +81,7 @@ public struct LogMessage {
     public var renderedAttributedElements: [NSAttributedString] {
         get {
             var attributedElements = [NSAttributedString]()
-            for element: LogKitElement in logElements {
+            for element in logElements {
                 switch element {
                 case let .Static(text):
                     attributedElements += [NSAttributedString(string: text)]

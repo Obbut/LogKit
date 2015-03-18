@@ -8,8 +8,10 @@
 
 import Foundation
 
-class LogDestinationConsole: LogDestination {
-    func log(message: LogMessage) {
+public class LogDestinationConsole: LogDestination {
+    public init() {}
+    
+    public func log(message: LogMessage) {
         println(message.loggableText)
     }
 }

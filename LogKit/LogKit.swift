@@ -49,7 +49,6 @@ public class Logger {
     public var logElements: [LogKitElement] = [.Static("["), .LogLevel, .Static("]"), .FileName, .FunctionName, .LogMessage]
     public var logElementSeparator = " "
 
-    public var enableXcodeColorsSupport = false
     public var logColors: [LogKitLevel: UIColor] = [
         .Verbose: UIColor.lightGrayColor(),
         .Debug: UIColor.purpleColor(),
@@ -57,6 +56,10 @@ public class Logger {
         .Warning: UIColor.orangeColor(),
         .Error: UIColor.redColor()
     ]
+    
+    lazy public var destinations: [LogDestination] = {
+        return [LogDestinationConsole()]
+        }()
 
     // MARK: - XcodeColors
     static private let colorEscape = "\u{001b}["
@@ -73,49 +76,12 @@ public class Logger {
 
     // MARK: - Logging
     public func log(level: LogKitLevel, message: String, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
-        var logMessage = ""
-
-        if enableXcodeColorsSupport {
-            var theColor: UIColor! = logColors[level]
-            if theColor == nil {
-                theColor = UIColor.blackColor()
-            }
-
-            logMessage += Logger.setColorString(forColor: theColor)
+        
+        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, elements: self.logElements)
+        
+        for destination in self.destinations {
+            destination.log(logMessage)
         }
-
-        for (index, element) in enumerate(logElements) {
-            // Concatenate the current element:
-            switch element {
-            case .FileName:
-                logMessage += file.lastPathComponent
-            case .FullFilePath:
-                logMessage += file
-            case .FunctionName:
-                logMessage += function
-            case .LineNumber:
-                logMessage += String(line)
-            case .ColumnNumber:
-                logMessage += String(column)
-            case .LogLevel:
-                logMessage += level.description
-            case let .Static(text):
-                logMessage += text
-            case .LogMessage:
-                logMessage += message
-            }
-
-            // Add separator if this isn't the last element
-            if index != logElements.count - 1 {
-                logMessage += logElementSeparator
-            }
-        }
-
-        if enableXcodeColorsSupport {
-            logMessage += Logger.colorReset
-        }
-
-        println(logMessage)
     }
 
     // MARK: - Convenience Logging

@@ -17,7 +17,6 @@ class LogKitTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        log.enableXcodeColorsSupport = true
         log.useForOperators()
     }
 
@@ -52,7 +51,6 @@ class LogKitTests: XCTestCase {
 
     func testCustomLogger() {
         let myLogger = Logger()
-        myLogger.enableXcodeColorsSupport = true
         myLogger.logElements = [.Static("Some static text in front..."), .LogMessage, .Static("and that was logged from file"), .FileName]
         myLogger.info("Wooohooo info message")
 
