@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LogDestination {
-    
+    func log(message: LogMessage)
 }

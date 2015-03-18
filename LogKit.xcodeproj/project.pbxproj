@@ -14,6 +14,7 @@
 		F23B46371AAE27AC00BBFB7A /* LogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F23B46361AAE27AC00BBFB7A /* LogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23B463D1AAE27AC00BBFB7A /* LogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23B46311AAE27AC00BBFB7A /* LogKit.framework */; };
 		F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC541AB95D65006A7946 /* LogKitElement.swift */; };
+		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; explicitFileType = compiled; path = README.md; sourceTree = "<group>"; };
 		F2E5EC541AB95D65006A7946 /* LogKitElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitElement.swift; sourceTree = "<group>"; };
+		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
 				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
 				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
+				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
 				F23B46361AAE27AC00BBFB7A /* LogKit.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
 			);
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
+				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
 				4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */,
 				F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */,
 				4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */,
