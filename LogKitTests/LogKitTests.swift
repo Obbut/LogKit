@@ -66,5 +66,9 @@ class LogKitTests: XCTestCase {
 
         myLogger.info("The color for this log level is undefined, so it should be black")
     }
-
+    
+    func testLogMessage() {
+        var message = LogMessage(text: "text", logLevel: .Info, function: __FUNCTION__, fullFilePath: __FILE__, line: __LINE__, column: __COLUMN__, elements: [Static.LogLevel])
+        XCTAssertEqual(message.loggableText, "Info", "Loglevel output not correct")
+    }
 }

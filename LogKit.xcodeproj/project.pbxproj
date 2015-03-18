@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4794AFB01AB8317E00E91DC1 /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFAD1AB8317E00E91DC1 /* LogDestination.swift */; };
-		4794AFB11AB8317E00E91DC1 /* LogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFAE1AB8317E00E91DC1 /* LogKit.swift */; };
-		4794AFB21AB8317E00E91DC1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFAF1AB8317E00E91DC1 /* LogMessage.swift */; };
+		4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* LogKit.swift */; };
+		4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB81AB840BC00E91DC1 /* LogMessage.swift */; };
+		4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB91AB840BC00E91DC1 /* LogDestination.swift */; };
+		4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */; };
 		F23B46371AAE27AC00BBFB7A /* LogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F23B46361AAE27AC00BBFB7A /* LogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23B463D1AAE27AC00BBFB7A /* LogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23B46311AAE27AC00BBFB7A /* LogKit.framework */; };
-		F23B46441AAE27AC00BBFB7A /* LogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23B46431AAE27AC00BBFB7A /* LogKitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +26,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4794AFAD1AB8317E00E91DC1 /* LogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogDestination.swift; path = "../../../../../apps/xcode/Framework Development/LogKit/LogKit/LogDestination.swift"; sourceTree = "<group>"; };
-		4794AFAE1AB8317E00E91DC1 /* LogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogKit.swift; path = "../../../../../apps/xcode/Framework Development/LogKit/LogKit/LogKit.swift"; sourceTree = "<group>"; };
-		4794AFAF1AB8317E00E91DC1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = "../../../../../apps/xcode/Framework Development/LogKit/LogKit/LogMessage.swift"; sourceTree = "<group>"; };
+		4794AFB71AB840BC00E91DC1 /* LogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKit.swift; sourceTree = "<group>"; };
+		4794AFB81AB840BC00E91DC1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
+		4794AFB91AB840BC00E91DC1 /* LogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestination.swift; sourceTree = "<group>"; };
+		4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitTests.swift; sourceTree = "<group>"; };
 		F23B46311AAE27AC00BBFB7A /* LogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46351AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B46361AAE27AC00BBFB7A /* LogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogKit.h; sourceTree = "<group>"; };
 		F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F23B46431AAE27AC00BBFB7A /* LogKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogKitTests.swift; sourceTree = "<group>"; };
 		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; explicitFileType = compiled; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +79,9 @@
 		F23B46331AAE27AC00BBFB7A /* LogKit */ = {
 			isa = PBXGroup;
 			children = (
-				4794AFAD1AB8317E00E91DC1 /* LogDestination.swift */,
-				4794AFAE1AB8317E00E91DC1 /* LogKit.swift */,
-				4794AFAF1AB8317E00E91DC1 /* LogMessage.swift */,
+				4794AFB71AB840BC00E91DC1 /* LogKit.swift */,
+				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
+				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
 				F23B46361AAE27AC00BBFB7A /* LogKit.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
 			);
@@ -99,7 +99,7 @@
 		F23B46401AAE27AC00BBFB7A /* LogKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				F23B46431AAE27AC00BBFB7A /* LogKitTests.swift */,
+				4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */,
 				F23B46411AAE27AC00BBFB7A /* Supporting Files */,
 			);
 			path = LogKitTests;
@@ -220,9 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4794AFB21AB8317E00E91DC1 /* LogMessage.swift in Sources */,
-				4794AFB01AB8317E00E91DC1 /* LogDestination.swift in Sources */,
-				4794AFB11AB8317E00E91DC1 /* LogKit.swift in Sources */,
+				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
+				4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */,
+				4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23B46441AAE27AC00BBFB7A /* LogKitTests.swift in Sources */,
+				4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +370,7 @@
 		F23B464B1AAE27AC00BBFB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -381,12 +382,14 @@
 				INFOPLIST_FILE = LogKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F23B464C1AAE27AC00BBFB7A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

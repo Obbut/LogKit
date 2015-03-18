@@ -9,7 +9,22 @@
 import Foundation
 
 public struct LogMessage {
-    var text: String {
+    public init(text someText: NSAttributedString, logLevel aLevel: LogKitLevel, function aFunction: String, fullFilePath aFilePath: String, line aLine: Int, column aColumn: Int, elements someElements: [LogKitElement]) {
+        attributedText = someText
+        logLevel = aLevel
+        function = aFunction
+        fullFilePath = aFilePath
+        line = aLine
+        column = aColumn
+        logElements = someElements
+    }
+    
+    public init(text someText: String, logLevel aLevel: LogKitLevel, function aFunction: String, fullFilePath aFilePath: String, line aLine: Int, column aColumn: Int, elements someElements: [LogKitElement]) {
+        let attrString = NSAttributedString(string: someText)
+        self.init(text: attrString, logLevel: aLevel, function: aFunction, fullFilePath: aFilePath, line: aLine, column: aColumn, elements: someElements)
+    }
+    
+    public var text: String {
         get {
             return attributedText.string
         }
@@ -18,30 +33,30 @@ public struct LogMessage {
         }
     }
     
-    var attributedText: NSAttributedString
-    var logElements: [LogKitElement]
+    public var attributedText: NSAttributedString
+    public var logElements: [LogKitElement]
     
-    var logLevel: LogKitLevel
-    var attributedLogLevel: NSAttributedString { return NSAttributedString(string: logLevel.description) }
+    public var logLevel: LogKitLevel
+    public var attributedLogLevel: NSAttributedString { return NSAttributedString(string: logLevel.description) }
     
-    var function: String
-    var fullFilePath: String
-    var line: Int
-    var column: Int
+    public var function: String
+    public var fullFilePath: String
+    public var line: Int
+    public var column: Int
     
-    var lineString: String { return String(line) }
-    var columnString: String { return String(column) }
-    var fileName: String { return fullFilePath.lastPathComponent }
+    public var lineString: String { return String(line) }
+    public var columnString: String { return String(column) }
+    public var fileName: String { return fullFilePath.lastPathComponent }
     
-    var attributedFunction: NSAttributedString { return NSAttributedString(string: function) }
-    var attributedFullFilePath: NSAttributedString { return NSAttributedString(string: fullFilePath) }
-    var attributedFilename: NSAttributedString { return NSAttributedString(string: fileName) }
-    var attributedLine: NSAttributedString { return NSAttributedString(string: lineString) }
-    var attributedColumn: NSAttributedString { return NSAttributedString(string: columnString) }
+    public var attributedFunction: NSAttributedString { return NSAttributedString(string: function) }
+    public var attributedFullFilePath: NSAttributedString { return NSAttributedString(string: fullFilePath) }
+    public var attributedFilename: NSAttributedString { return NSAttributedString(string: fileName) }
+    public var attributedLine: NSAttributedString { return NSAttributedString(string: lineString) }
+    public var attributedColumn: NSAttributedString { return NSAttributedString(string: columnString) }
     
-    var loggableText: String { return loggableAttributedText.string }
+    public var loggableText: String { return loggableAttributedText.string }
     
-    var loggableAttributedText: NSAttributedString {
+    public var loggableAttributedText: NSAttributedString {
         get {
             var loggableAttributedText = NSMutableAttributedString()
             
@@ -53,7 +68,7 @@ public struct LogMessage {
         }
     }
     
-    var renderedAttributedElements: [NSAttributedString] {
+    public var renderedAttributedElements: [NSAttributedString] {
         get {
             var attributedElements = [NSAttributedString]()
             for element: LogKitElement in logElements {
