@@ -13,6 +13,9 @@
 		4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */; };
 		F23B46371AAE27AC00BBFB7A /* LogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F23B46361AAE27AC00BBFB7A /* LogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23B463D1AAE27AC00BBFB7A /* LogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23B46311AAE27AC00BBFB7A /* LogKit.framework */; };
+		F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */; };
+		F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
+		F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
 		F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC541AB95D65006A7946 /* LogKitElement.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,9 @@
 		F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; explicitFileType = compiled; path = README.md; sourceTree = "<group>"; };
+		F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitOperators.swift; sourceTree = "<group>"; };
+		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
+		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		F2E5EC541AB95D65006A7946 /* LogKitElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitElement.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,11 +89,8 @@
 		F23B46331AAE27AC00BBFB7A /* LogKit */ = {
 			isa = PBXGroup;
 			children = (
-				4794AFB71AB840BC00E91DC1 /* LogKit.swift */,
-				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
-				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
-				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
-				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
+				F2A70BCD1ABB3D13001FEE0D /* Log Destinations */,
+				F2A70BCC1ABB3CE8001FEE0D /* Core */,
 				F23B46361AAE27AC00BBFB7A /* LogKit.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
 			);
@@ -117,6 +120,28 @@
 				F23B46421AAE27AC00BBFB7A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2A70BCC1ABB3CE8001FEE0D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4794AFB71AB840BC00E91DC1 /* LogKit.swift */,
+				F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */,
+				F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */,
+				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
+				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
+				F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		F2A70BCD1ABB3D13001FEE0D /* Log Destinations */ = {
+			isa = PBXGroup;
+			children = (
+				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
+				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
+			);
+			name = "Log Destinations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +252,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
+				F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
+				F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */,
 				4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */,
+				F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */,
 				F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */,
 				4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */,
 			);
