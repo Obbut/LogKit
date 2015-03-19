@@ -86,6 +86,10 @@ LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Changelog
 
+### 0.3.0
+* LogKit is now internally based on logging attributed strings. This means that you can add some markup to your logs, as long as your logging destination supports it.
+* The output of logging is now handled by the LogDestination protocol. You can conform to this protocol to log to a custom destination: a web service, custom file structure, hell, even Twitter would you want it!
+
 ### 0.2.0
 * Rename from RBLogger to LogKit
 * Changed the names of all classes, structs, etc
