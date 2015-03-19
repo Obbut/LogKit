@@ -11,6 +11,11 @@ import XCTest
 import LogKit
 
 let log = Logger()
+let testDest = TestLogDestination()
+
+func assertMessage(expected: String, message: String) {
+    XCTAssertEqual(testDest.lastMessage.loggableText, expected, message)
+}
 
 class LogKitTests: XCTestCase {
 
@@ -20,7 +25,7 @@ class LogKitTests: XCTestCase {
         log.useForOperators()
         let coloredConsole = LogDestinationConsole()
         coloredConsole.enableXcodeColorsSupport = true
-        log.destinations = [coloredConsole]
+        log.destinations = [coloredConsole, testDest]
     }
 
     override func tearDown() {
@@ -30,18 +35,36 @@ class LogKitTests: XCTestCase {
 
     func testLoggingSuffixOperators() {
         "This is a verbose logging test"<?
+        assertMessage("[ Verbose ]  <? This is a verbose logging test", "Verbose logging operator output")
+        
         "This is a debug logging test"<!
+        assertMessage("[ Debug ]  <! This is a debug logging test", "Debug logging operator output")
+        
         "This is a info logging test"<*
+        assertMessage("[ Info ]  <* This is a info logging test", "Info logging operator output")
+        
         "This is a warning logging test"<!?
+        assertMessage("[ Warning ]  <!? This is a warning logging test", "Warning logging operator output")
+        
         "This is a error logging test"<!!
+        assertMessage("[ Error ]  <!! This is a error logging test", "Error logging operator output")
     }
 
     func testLoggingInfixOperators() {
-        XCTAssert("This should log true: " >? true, "Verbose infix operator")
-        XCTAssertFalse("This should log false: " >! false, "Debug infix operator")
-        XCTAssertEqual(55, "This should log 55: " >* 55, "Info infix operator")
-        XCTAssert("Testing the Warning operator: " >!? true, "Warning infix operator")
-        XCTAssertFalse("Testing the Error operator: " >!! false, "Error infix operator")
+        XCTAssertTrue("This should log true:" >? true, "Verbose infix operator")
+        assertMessage("[ Verbose ]  >? This should log true: true", "Verbose infix operator output")
+        
+        XCTAssertFalse("This should log false:" >! false, "Debug infix operator")
+        assertMessage("[ Debug ]  >! This should log false: false", "Debug infix operator output")
+        
+        XCTAssertEqual(55, "This should log 55:" >* 55, "Info infix operator")
+        assertMessage("[ Info ]  >* This should log 55: 55", "Info infix operator output")
+        
+        XCTAssertTrue("Testing the warning operator:" >!? true, "Warning infix operator")
+        assertMessage("[ Warning ]  >!? Testing the warning operator: true", "Warning infix operator output")
+        
+        XCTAssertFalse("Testing the error operator:" >!! false, "Error infix operator")
+        assertMessage("[ Error ]  >!! Testing the error operator: false", "Error infix operator output")
     }
 
     func testLoggingFunctions() {

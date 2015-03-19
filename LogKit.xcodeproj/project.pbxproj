@@ -16,6 +16,7 @@
 		F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */; };
 		F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
 		F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
+		F2A70BD31ABB3E8A001FEE0D /* TestLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */; };
 		F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC541AB95D65006A7946 /* LogKitElement.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitOperators.swift; sourceTree = "<group>"; };
 		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
 		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogDestination.swift; sourceTree = "<group>"; };
 		F2E5EC541AB95D65006A7946 /* LogKitElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitElement.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */,
+				F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */,
 				F23B46411AAE27AC00BBFB7A /* Supporting Files */,
 			);
 			path = LogKitTests;
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */,
+				F2A70BD31ABB3E8A001FEE0D /* TestLogDestination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
