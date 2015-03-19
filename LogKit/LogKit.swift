@@ -30,12 +30,6 @@ public enum LogKitLevel {
     }
 }
 
-// MARK: Colors
-// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-public enum LogKitColorType {
-    case Foreground, Background
-}
-
 
 // MARK: Class
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -61,22 +55,21 @@ public class Logger {
         return [LogDestinationConsole()]
         }()
 
-    // MARK: - XcodeColors
-    static private let colorEscape = "\u{001b}["
-    static private let colorReset = colorEscape + ";"
-    static private let colorFgReset = colorEscape + "fg;"
-    static private let colorBgReset = colorEscape + "bg;"
-
-    private class func setColorString(forColor color: UIColor, type: LogKitColorType = .Foreground) -> String {
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        color.getRed(&r, green: &g, blue: &b, alpha: &a)
-
-        return colorEscape + (type == LogKitColorType.Foreground ? "fg" : "bg") + "\(Int(r * 255.0)),\(Int(g * 255.0)),\(Int(b * 255.0));"
-    }
-
     // MARK: - Logging
     public func log(level: LogKitLevel, message: String, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
         
+        let attributedMessage: NSAttributedString
+        
+        if let fgColor = logColors[level] {
+            attributedMessage = NSAttributedString(string: message, attributes: [NSForegroundColorAttributeName: fgColor])
+        } else {
+            attributedMessage = NSAttributedString(string: message)
+        }
+        
+        self.log(level, message: attributedMessage, function, file, line, column)
+    }
+    
+    public func log(level: LogKitLevel, message: NSAttributedString, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
         let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, elements: self.logElements)
         
         for destination in self.destinations {
@@ -84,7 +77,7 @@ public class Logger {
         }
     }
 
-    // MARK: - Convenience Logging
+    // MARK: - Convenience Logging with unattributed strings
     public func verbose(message: String, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
         self.log(.Verbose, message: message, function, file, line, column)
     }
@@ -102,6 +95,27 @@ public class Logger {
     }
 
     public func error(message: String, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
+        self.log(.Error, message: message, function, file, line, column)
+    }
+    
+    // MARK - Convenience Logging with attributed strings
+    public func verbose(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
+        self.log(.Verbose, message: message, function, file, line, column)
+    }
+    
+    public func debug(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
+        self.log(.Debug, message: message, function, file, line, column)
+    }
+    
+    public func info(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
+        self.log(.Info, message: message, function, file, line, column)
+    }
+    
+    public func warning(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
+        self.log(.Warning, message: message, function, file, line, column)
+    }
+    
+    public func error(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
         self.log(.Error, message: message, function, file, line, column)
     }
     

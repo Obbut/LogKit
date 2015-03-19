@@ -18,6 +18,9 @@ class LogKitTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         log.useForOperators()
+        let coloredConsole = LogDestinationConsole()
+        coloredConsole.enableXcodeColorsSupport = true
+        log.destinations = [coloredConsole]
     }
 
     override func tearDown() {
@@ -51,6 +54,9 @@ class LogKitTests: XCTestCase {
 
     func testCustomLogger() {
         let myLogger = Logger()
+        let dest = LogDestinationConsole()
+        dest.enableXcodeColorsSupport = true
+        myLogger.destinations = [dest]
         myLogger.logElements = [.Static("Some static text in front..."), .LogMessage, .Static("and that was logged from file"), .FileName]
         myLogger.info("Wooohooo info message")
 
@@ -68,5 +74,13 @@ class LogKitTests: XCTestCase {
     func testLogMessage() {
         var message = LogMessage(text: "text", logLevel: .Info, function: __FUNCTION__, fullFilePath: __FILE__, line: __LINE__, column: __COLUMN__, elements: [.LogLevel])
         XCTAssertEqual(message.loggableText, "Info", "Loglevel output not correct")
+    }
+    
+    func testLoggingAttributedStrings() {
+        let str = NSAttributedString(string: "This looks ugly", attributes: [
+            NSForegroundColorAttributeName: UIColor.purpleColor(),
+            NSBackgroundColorAttributeName: UIColor.yellowColor()
+            ])
+        log.verbose(str)
     }
 }
