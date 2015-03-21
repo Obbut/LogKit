@@ -9,8 +9,6 @@
 import UIKit
 
 public class LogDestinationConsole: LogDestination {
-    public init() {}
-    
     // MARK: - XcodeColors
     static private let colorEscape = "\u{001b}["
     static private let colorReset = colorEscape + ";"
@@ -36,7 +34,7 @@ public class LogDestinationConsole: LogDestination {
     
     public var enableXcodeColorsSupport = false
     
-    public func log(message: LogMessage) {
+    public override func log(message: LogMessage) {
         if enableXcodeColorsSupport == false {
             println(message.loggableText)
         } else {

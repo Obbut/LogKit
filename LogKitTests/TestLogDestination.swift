@@ -11,7 +11,7 @@ import LogKit
 class TestLogDestination: LogDestination {
     var lastMessage: LogMessage!
     
-    func log(message: LogMessage) {
+    override func log(message: LogMessage) {
         lastMessage = message
     }
 }

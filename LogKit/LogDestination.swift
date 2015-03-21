@@ -8,6 +8,8 @@
 
 import Foundation
 
-public protocol LogDestination {
-    func log(message: LogMessage)
+public class LogDestination {
+    public init() {}
+    public func log(message: LogMessage) { assertionFailure("You should not use the LogDestination class directly and you should override the log function in every subclass.") }
+    public func didAttachToLogger(logger: Logger) {}
 }
