@@ -21,10 +21,6 @@ Which results in:
 	[ Warning ] LogKitTests.swift testLoggingFunctions() This is a warning message
 	[ Error ] LogKitTests.swift testLoggingFunctions() And finally, an error log message
 
-Optionally, if you have XcodeColors installed, you can enable support for it like this:
-
-	log.enableXcodeColorsSupport = true
-
 If you don't like the standard logging markup you can change it to your taste:
 
 	log.logElements = ["Some static text in front...", Static.LogMessage, "and that was logged from file", Static.FileName]
@@ -74,6 +70,8 @@ The infix operators log the entity on the right side, prefixed by string on the 
 
 	NSProcessInfo().processName<* // Prints the process name
 
+LogKit also supports XcodeColors.
+
 ## License
 
 LogKit is available under the MIT license. See the LICENSE file for more info.
@@ -87,7 +85,7 @@ LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ### 0.3.0
 * LogKit is now internally based on logging attributed strings. This means that you can add some markup to your logs, as long as your logging destination supports it.
-* The output of logging is now handled by the LogDestination protocol. You can conform to this protocol to log to a custom destination: a web service, custom file structure, hell, even Twitter would you want it!
+* The output of logging is now handled by the LogDestination class. You can subclass it to send your log messages wherever you would want – Twitter, for example.
 
 ### 0.2.0
 * Rename from RBLogger to LogKit
