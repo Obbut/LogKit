@@ -70,7 +70,9 @@ The infix operators log the entity on the right side, prefixed by string on the 
 
 	NSProcessInfo().processName<* // Prints the process name
 
-LogKit also supports XcodeColors.
+Other features:
+* Supports XcodeColors
+* Internally based on NSAttributedStrings, which can also be logged. Available attributes depend on the destination.
 
 ## License
 
