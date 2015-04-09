@@ -104,4 +104,8 @@ public struct LogMessage {
             return attributedElements
         }
     }
+    
+    public var debugQuickLookObject: String {
+        return self.loggableText
+    }
 }

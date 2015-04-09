@@ -27,6 +27,7 @@ public class LogDestinationConsole: LogDestination {
             type = "bg"
         default:
             assertionFailure("Invalid setColorString attribute")
+            return ""
         }
         
         return colorEscape + type + "\(Int(r * 255.0)),\(Int(g * 255.0)),\(Int(b * 255.0));"

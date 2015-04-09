@@ -42,6 +42,7 @@
 		F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; explicitFileType = compiled; path = README.md; sourceTree = "<group>"; };
+		F274B4231AD66BFF006B12B7 /* LogKit Tutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "LogKit Tutorial.playground"; sourceTree = "<group>"; };
 		F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitOperators.swift; sourceTree = "<group>"; };
 		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
 		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		F23B46271AAE27AC00BBFB7A = {
 			isa = PBXGroup;
 			children = (
+				F274B4231AD66BFF006B12B7 /* LogKit Tutorial.playground */,
 				F23B464F1AAE29AF00BBFB7A /* README.md */,
 				F23B46331AAE27AC00BBFB7A /* LogKit */,
 				F23B46401AAE27AC00BBFB7A /* LogKitTests */,
@@ -377,6 +379,7 @@
 		F23B46481AAE27AC00BBFB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -384,6 +387,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LogKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -394,6 +398,7 @@
 		F23B46491AAE27AC00BBFB7A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -401,6 +406,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = LogKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
