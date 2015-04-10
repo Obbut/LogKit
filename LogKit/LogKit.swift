@@ -59,7 +59,7 @@ public class Logger {
         }
         
         for destination in self.destinations {
-            destination.log(message)
+            destination.prepareAndLogMessage(message)
         }
     }
     

@@ -24,7 +24,7 @@ class LogKitTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         log.useForOperators()
         let coloredConsole = LogDestinationConsole()
-        coloredConsole.enableXcodeColorsSupport = true
+        coloredConsole.encoder = XcodeColorsEncoder()
         log.destinations = [coloredConsole, testDest]
     }
 
@@ -78,7 +78,7 @@ class LogKitTests: XCTestCase {
     func testCustomLogger() {
         let myLogger = Logger()
         let dest = LogDestinationConsole()
-        dest.enableXcodeColorsSupport = true
+        dest.encoder = XcodeColorsEncoder()
         myLogger.destinations = [dest]
         myLogger.logElements = [.Static("Some static text in front..."), .LogMessage, .Static("and that was logged from file"), .FileName]
         myLogger.info("Wooohooo info message")

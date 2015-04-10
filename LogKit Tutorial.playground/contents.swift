@@ -5,6 +5,11 @@ LogKit is a flexible new logging framework written in Swift. It allows for custo
 
 This tutorial was last updated for LogKit 0.4.0.
 
+## About this Playground
+This playground shows you various ways to use LogKit. To view the results, click the 'Show result' button next to a statement in the results area (image below). Alternatively, you can also view console output by opening the assistant editor by pressing ⌥⌘↩.
+
+![Show Results button](ResultsButton.png "Show Results")
+
 ------------------------------------
 
 To get started with LogKit, you will need an instance of the __Logger__ class. It serves as the manager and destination for all your log messages and is fully configurable.
@@ -18,18 +23,23 @@ After creating our logging object, we can immediately start printing log message
 */
 log.warning("Hello, World!")
 /*:
+## Logging Destinations
+
 However, the most common log destination is probably the console. LogKit has a __LogDestination__ abstract class and comes with an implementation in the form of __LogDestinationConsole__ by default.
 
+### XcodeColors Support in LogDestinationConsole
 By default, color codes and other attributes will not be displayed in the console. However, if you have [XcodeColors](https://github.com/robbiehanson/XcodeColors) installed, you can uncomment the following lines by selecting them and pressing ⌘/ to enable colors in the Xcode Console:
 */
 let coloredConsole = LogDestinationConsole()
-coloredConsole.enableXcodeColorsSupport = true
+//coloredConsole.enableXcodeColorsSupport = true
 log.destinations = [coloredConsole]
 log.warning("This should print in orange!")
 /*:
 XcodeColors will greatly improve your LogKit Experience and is highly recommended. To show the results, open the assistant editor by pressing ⌥⌘↩ or from View > Assistant Editor > Show Assistant Editor. Make sure the assistant editor is set to 'Timeline'.
 
 ------------------------------------
+
+## Log Levels
 
 LogKit currently has built-in support for 5 levels of logging: verbose, debug, info, warning and error.
 */
@@ -44,3 +54,4 @@ Should you wish to do so, you can also print attributed strings. For console out
 let attributedString = NSAttributedString(string: "Hello!", attributes: [NSForegroundColorAttributeName: UIColor.cyanColor(),
     NSBackgroundColorAttributeName: UIColor.blackColor()])
 log.info(attributedString)
+

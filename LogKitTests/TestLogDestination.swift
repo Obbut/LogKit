@@ -11,7 +11,12 @@ import LogKit
 class TestLogDestination: LogDestination {
     var lastMessage: LogMessage!
     
-    override func log(message: LogMessage) {
+    override func formatMessage(message: LogMessage) -> NSAttributedString {
         lastMessage = message
+        return super.formatMessage(message)
+    }
+    
+    override func log(message: String) {
+        return
     }
 }
