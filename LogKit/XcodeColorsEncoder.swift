@@ -1,5 +1,5 @@
 //
-//  XcodeColorsFormatter.swift
+//  XcodeColorsEncoder.swift
 //  LogKit
 //
 //  Created by Robbert Brandsma on 09-04-15.

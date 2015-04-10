@@ -85,6 +85,11 @@ LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Changelog
 
+### 0.4.0
+* Added _Formatters_ and _Encoders_.
+	* Formatters allow you to replace (e.g. format) parts of a string: replace characters, parse character sequences into NSAttributedString attributes, etc.
+	* Encoders are the final step in the chain, and take an attributed string as input and a normal string as output. Use it to generate different log formats: HTML, Markdown, CSV, whatever you want.
+
 ### 0.3.0
 * LogKit is now internally based on logging attributed strings. This means that you can add some markup to your logs, as long as your logging destination supports it.
 * The output of logging is now handled by the LogDestination class. You can subclass it to send your log messages wherever you would want – Twitter, for example.
