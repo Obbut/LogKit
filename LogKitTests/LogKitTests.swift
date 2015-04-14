@@ -106,4 +106,14 @@ class LogKitTests: XCTestCase {
             ])
         log.verbose(str)
     }
+    
+    func testEmojiFormatter() {
+        let emojiLogger = Logger()
+        let dest = LogDestinationConsole()
+        dest.formatters = [EmojiFormatter()]
+        emojiLogger.destinations = [dest]
+        
+        emojiLogger.info("Hey hey :) This is a test of the Emoji logger ;) All these smileys should be automatically replaced.")
+        emojiLogger.warning("Hopefully it works :|")
+    }
 }
