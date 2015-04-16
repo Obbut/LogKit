@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* LogKit.swift */; };
+		4794AFBA1AB840BC00E91DC1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* Logger.swift */; };
 		4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB81AB840BC00E91DC1 /* LogMessage.swift */; };
 		4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB91AB840BC00E91DC1 /* LogDestination.swift */; };
 		4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */; };
@@ -23,6 +23,7 @@
 		F2D2DE511AD7C58000D90FC2 /* EmojiFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiFormatter.swift */; };
 		F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC541AB95D65006A7946 /* LogKitElement.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
+		F2EB98191ADF879E004D51D3 /* ProxyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4794AFB71AB840BC00E91DC1 /* LogKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKit.swift; sourceTree = "<group>"; };
+		4794AFB71AB840BC00E91DC1 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4794AFB81AB840BC00E91DC1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		4794AFB91AB840BC00E91DC1 /* LogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestination.swift; sourceTree = "<group>"; };
 		4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitTests.swift; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		F2D2DE501AD7C58000D90FC2 /* EmojiFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiFormatter.swift; sourceTree = "<group>"; };
 		F2E5EC541AB95D65006A7946 /* LogKitElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitElement.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
+		F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,8 @@
 		F2A70BCC1ABB3CE8001FEE0D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4794AFB71AB840BC00E91DC1 /* LogKit.swift */,
+				F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */,
+				4794AFB71AB840BC00E91DC1 /* Logger.swift */,
 				F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */,
 				F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */,
 				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
@@ -282,12 +285,13 @@
 				F2D2DE511AD7C58000D90FC2 /* EmojiFormatter.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
 				F23BD0101AD6C237005AFD69 /* LogMessageEncoder.swift in Sources */,
+				F2EB98191ADF879E004D51D3 /* ProxyLogger.swift in Sources */,
 				F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */,
 				4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */,
 				F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */,
 				F23BD0151AD6C564005AFD69 /* LogMessageFormatter.swift in Sources */,
 				F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */,
-				4794AFBA1AB840BC00E91DC1 /* LogKit.swift in Sources */,
+				4794AFBA1AB840BC00E91DC1 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

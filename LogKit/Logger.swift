@@ -72,4 +72,10 @@ public class Logger {
             return "Logger with \(destinations.count) destination(s)"
         }
     }
+    
+    // MARK: - For Frameworks
+    var useForFrameworks = false
+    func loggerForFrameworkWithName(frameworkName: String) -> Logger {
+        return ProxyLogger(frameworkName: frameworkName, parent: self)
+    }
 }
