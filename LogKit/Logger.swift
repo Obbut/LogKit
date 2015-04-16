@@ -74,8 +74,12 @@ public class Logger {
     }
     
     // MARK: - For Frameworks
-    var useForFrameworks = false
-    func loggerForFrameworkWithName(frameworkName: String) -> Logger {
-        return ProxyLogger(frameworkName: frameworkName, parent: self)
+    public var useForFrameworks = false
+    public func loggerForFrameworkWithName(frameworkName: String) -> Logger? {
+        if self.useForFrameworks {
+            return ProxyLogger(frameworkName: frameworkName, parent: self)
+        } else {
+            return nil
+        }
     }
 }
