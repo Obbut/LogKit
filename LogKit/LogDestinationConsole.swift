@@ -10,6 +10,6 @@ import UIKit
 
 public class LogDestinationConsole: LogDestination {
     public override func log(message: String) {
-        println(message)
+        print(message)
     }
 }

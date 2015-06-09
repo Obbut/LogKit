@@ -33,7 +33,7 @@ public class XcodeColorsEncoder : LogMessageEncoder {
     }
     
     override public func encodeLogMessage(message: NSAttributedString) -> String {
-        var xcodeColorsText = NSMutableString(string: message.string)
+        let xcodeColorsText = NSMutableString(string: message.string)
         
         
         var shiftedCharacters = 0

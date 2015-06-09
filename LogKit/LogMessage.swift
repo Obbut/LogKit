@@ -64,9 +64,9 @@ public struct LogMessage {
     
     public var loggableAttributedText: NSAttributedString {
         get {
-            var loggableAttributedText = NSMutableAttributedString()
+            let loggableAttributedText = NSMutableAttributedString()
             
-            for (index, element) in enumerate(renderedAttributedElements) {
+            for (index, element) in renderedAttributedElements.enumerate() {
                 if index > 0 {
                     loggableAttributedText.appendAttributedString(attributedElementSepearator)
                 }
