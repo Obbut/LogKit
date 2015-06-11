@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A concrete subclass of LogDestination that logs to the console using the Swift `print()` function.
 public class LogDestinationConsole: LogDestination {
     public override func log(message: String) {
         print(message)

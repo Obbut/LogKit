@@ -40,6 +40,7 @@ The standard log elements array is:
 	["[", Static.LogLevel, "]", Static.FileName, Static.FunctionName, Static.LogMessage]
 
 ### Logging Operators
+__Logging operators are disabled for now.__
 You can also log with special logging operators. There are both infix and postfix logging operators.
 
 __Infix Operators__
@@ -74,13 +75,27 @@ Other features:
 * Supports XcodeColors
 * Internally based on NSAttributedStrings, which can also be logged. Available attributes depend on the destination.
 
+## LogKit classes
+LogKit consists of a number of classes, each of which serve a special purpose. An overview:
+
+* __Logger__ This the main class in LogKit. It acts as a central hub for the logging framework, and you send your log messages to your logger.
+* __LogDestination__ LogKit is flexible and can log to any number of destinations. By default, only one LogDestination of type LogDestinationConsole is configured. You can subclass this class to write your own log destination; this allows you to send your log messages over a network, write them to disk in a custom format, etcetera.
+* __LogMessageEncoder__ You can optionally configure a log destination with an encoder. Encoders are subclasses of the LogMessageEncoder class, and their purpose is to take an attributed string and transform it to an ordinary string. LogKit provides a concrete subclass of LogMessageEncoder: XcodeColorsEncoder. Different log destinations can have different encoders.
+* __LogMessageFormatter__ A formatter can replace parts of a log message or add attributes on it. It takes an attributed string, and returns the same or another attributed string. LogKit provides an implementation in the form of EmojiFormatter, that replaces common smiley sequences with Emoji.
+
+## LogKit for Frameworks
+LogKit has special support for frameworks. When developing a framework, you may want to incorporate logging for debugging purposes. However, users of your framework may or may not want your framework to log anything. With LogKit, your framework can request a special framework logging instance. You have to provide an identifier for your framework when requesting the logger.
+
+The logger that your framework will use, is of the special _ProxyLogger_ type. For you, as the client, this works exactly the same as any other logger, except that you cannot create it yourself. Under the hood this gives the user of your framework the ability to set various logging parameters on a per-framework basis.
+
+Given the framework identifier, options like text attributes, minimum log levels or disabling logging overall can be configured for that specific framework. This gives a user very precise control over the log messages that your framework can and will emit.
+
 ## License
 
 LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Upcoming Features
-* Subclass on the log destination class for logging to a network destination
-* Web based viewer for logs
+* LogKit Server: 
 * Better logging operators
 
 ## Changelog
