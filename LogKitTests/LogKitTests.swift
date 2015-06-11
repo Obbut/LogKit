@@ -26,7 +26,6 @@ class LogKitTests: XCTestCase {
         let coloredConsole = LogDestinationConsole()
         coloredConsole.encoder = XcodeColorsEncoder()
         log.destinations = [coloredConsole, testDest]
-        log.useForFrameworks()
     }
 
     override func tearDown() {

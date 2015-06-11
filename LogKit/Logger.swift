@@ -11,7 +11,11 @@ import UIKit
 public class Logger {
 
     // MARK: Initializer
-    public init() { }
+    public init() {
+        if Logger.frameworkLogger == nil {
+            self.useForFrameworks = true
+        }
+    }
 
     // MARK: - Settings
     public var logElements: [LogKitElement] = [.Static("["), .LogLevel, .Static("]"), .FileName, .FunctionName, .LogMessage]
@@ -78,7 +82,7 @@ public class Logger {
     
     // MARK: - For Frameworks
     private static var frameworkProxies = [ProxyLogger]()
-    private static var frameworkLogger: Logger? = nil {
+    private static weak var frameworkLogger: Logger? = nil {
         didSet {
             for proxy in frameworkProxies {
                 proxy.parent = frameworkLogger
@@ -87,8 +91,9 @@ public class Logger {
     }
     
     /// Do not. Ever. Call this method. From a framework. NEVER.
-    public func useForFrameworks() {
-        Logger.frameworkLogger = self
+    public var useForFrameworks: Bool {
+        get { return self === Logger.frameworkLogger }
+        set { Logger.frameworkLogger = self }
     }
     
     public class func loggerForFrameworkWithName(frameworkName: String) -> Logger {

@@ -69,7 +69,8 @@ public class ProxyLogger : Logger {
         set { fatalError("Destinations are not accessible on proxy loggers.") }
     }
     
-    public override func useForFrameworks() {
-        fatalError("\(__FUNCTION__) unavailable on proxy loggers.")
+    public override var useForFrameworks: Bool {
+        get { return true }
+        set { fatalError("Cannot set a proxy logger to be used for frameworks.") }
     }
 }
