@@ -34,8 +34,12 @@ public class Logger {
     private var lastLogMessageForPlaygroundMode: LogMessage?
 
     // MARK: - Logging
+    internal func log(level: LogKitLevel, message: NSAttributedString, frameworkIdentifier: String?, _ function: String, _ file: String, _ line: Int, _ column: Int) {
+        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, elements: self.logElements)
+        log(logMessage)
+    }
+    
     public func log(level: LogKitLevel, message: String, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
-        
         let attributedMessage: NSAttributedString
         
         if let fgColor = logColors[level] {
@@ -48,9 +52,8 @@ public class Logger {
     }
     
     public func log(level: LogKitLevel, message: NSAttributedString, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
-        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, elements: self.logElements)
-        
-        log(logMessage)
+        // Forward to the internal logging function
+        log(level, message: message, frameworkIdentifier: nil, function, file, line, column)
     }
     
     public func log(message: LogMessage) {
