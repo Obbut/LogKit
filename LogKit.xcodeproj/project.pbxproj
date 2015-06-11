@@ -16,7 +16,6 @@
 		F23BD0101AD6C237005AFD69 /* LogMessageEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD00F1AD6C237005AFD69 /* LogMessageEncoder.swift */; };
 		F23BD0131AD6C436005AFD69 /* XcodeColorsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0121AD6C436005AFD69 /* XcodeColorsEncoder.swift */; };
 		F23BD0151AD6C564005AFD69 /* LogMessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0141AD6C564005AFD69 /* LogMessageFormatter.swift */; };
-		F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */; };
 		F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
 		F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
 		F2A70BD31ABB3E8A001FEE0D /* TestLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */; };
@@ -51,7 +50,6 @@
 		F23BD0121AD6C436005AFD69 /* XcodeColorsEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsEncoder.swift; sourceTree = "<group>"; };
 		F23BD0141AD6C564005AFD69 /* LogMessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageFormatter.swift; sourceTree = "<group>"; };
 		F274B4231AD66BFF006B12B7 /* LogKit Tutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "LogKit Tutorial.playground"; sourceTree = "<group>"; };
-		F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitOperators.swift; sourceTree = "<group>"; };
 		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
 		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogDestination.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */,
 				4794AFB71AB840BC00E91DC1 /* Logger.swift */,
 				F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */,
-				F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */,
 				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
 				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
 				F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */,
@@ -282,7 +279,6 @@
 			files = (
 				F23BD0131AD6C436005AFD69 /* XcodeColorsEncoder.swift in Sources */,
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
-				F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */,
 				F2D2DE511AD7C58000D90FC2 /* EmojiFormatter.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
 				F23BD0101AD6C237005AFD69 /* LogMessageEncoder.swift in Sources */,
