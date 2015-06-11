@@ -39,38 +39,6 @@ The standard log elements array is:
 
 	["[", Static.LogLevel, "]", Static.FileName, Static.FunctionName, Static.LogMessage]
 
-### Logging Operators
-__Logging operators are disabled for now.__
-You can also log with special logging operators. There are both infix and postfix logging operators.
-
-__Infix Operators__
-
-* `>?` for verbose logging
-* `>!` for debug logging
-* `>*` for info logging
-* `>!?` for warning logging
-* `>!!` for error logging
-
-__Postfix operators__
-
-* `<?` for verbose logging
-* `<!` for debug logging
-* `<*` for info logging
-* `<!?` for warning logging
-* `<!!` for error logging
-
-The infix operators log the entity on the right side, prefixed by string on the left side. They return the right-hand entity and thus can be used inline. The postfix operators log the entity to which they are applied, and return the same entity, thus can be used inline.
-
-	let exampleForLogging = "This string will be logged as info"<*
-
-	if "The number is: " >* 4 == 4 {
-		// This will always be executed
-	}
-
-	["Hello", "Cheese is green on tueseday", "Cookies"]<? // [ Verbose ]  <? [Hello, Cheese is green on tueseday, Cookies]
-
-	NSProcessInfo().processName<* // Prints the process name
-
 Other features:
 * Supports XcodeColors
 * Internally based on NSAttributedStrings, which can also be logged. Available attributes depend on the destination.
