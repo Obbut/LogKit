@@ -26,6 +26,7 @@ class LogKitTests: XCTestCase {
         let coloredConsole = LogDestinationConsole()
         coloredConsole.encoder = XcodeColorsEncoder()
         log.destinations = [coloredConsole, testDest]
+        log.useForFrameworks()
     }
 
     override func tearDown() {
@@ -115,5 +116,9 @@ class LogKitTests: XCTestCase {
         
         emojiLogger.info("Hey hey :) This is a test of the Emoji logger ;) All these smileys should be automatically replaced.")
         emojiLogger.warning("Hopefully it works :|")
+    }
+    
+    func testForFrameworks() {
+        
     }
 }

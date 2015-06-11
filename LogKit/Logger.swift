@@ -77,12 +77,30 @@ public class Logger {
     }
     
     // MARK: - For Frameworks
-    public var useForFrameworks = false
-    public func loggerForFrameworkWithName(frameworkName: String) -> Logger? {
-        if self.useForFrameworks {
-            return ProxyLogger(frameworkName: frameworkName, parent: self)
+    private static var frameworkProxies = [ProxyLogger]()
+    private static var frameworkLogger: Logger? = nil {
+        didSet {
+            for proxy in frameworkProxies {
+                proxy.parent = frameworkLogger
+            }
+        }
+    }
+    
+    /// Do not. Ever. Call this method. From a framework. NEVER.
+    public func useForFrameworks() {
+        Logger.frameworkLogger = self
+    }
+    
+    public class func loggerForFrameworkWithName(frameworkName: String) -> Logger {
+        let proxies = frameworkProxies.filter { $0.frameworkName == frameworkName }
+        assert(proxies.count > 1, "OMG TOO MANY FRAMEWORK LOGGERS OMGOMGOMG WHAT THE **** IS GOING ON")
+        
+        if proxies.count == 1 {
+            return proxies[0]
         } else {
-            return nil
+            let proxy = ProxyLogger(frameworkName: frameworkName, parent: frameworkLogger)
+            frameworkProxies.append(proxy)
+            return proxy
         }
     }
 }

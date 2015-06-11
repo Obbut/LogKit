@@ -8,12 +8,20 @@
 
 import Foundation
 
+private func inCaseOfNil<T>(defaultValue: T, @autoclosure _ getClosure: () -> T?) -> T {
+    if let val = getClosure() {
+        return val
+    } else {
+        return defaultValue
+    }
+}
+
 public class ProxyLogger : Logger {
     
-    internal var parent: Logger
+    internal var parent: Logger?
     public let frameworkName: String
     
-    internal init(frameworkName: String, parent: Logger) {
+    internal init(frameworkName: String, parent: Logger?) {
         self.parent = parent
         self.frameworkName = frameworkName
     }
@@ -24,35 +32,35 @@ public class ProxyLogger : Logger {
     
     // MARK: - Logging
     public override func log(message: LogMessage) {
-        parent.log(message)
+        parent?.log(message)
     }
     
     public override func log(level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int) {
-        parent.log(level, message: message, function, file, line, column)
+        parent?.log(level, message: message, function, file, line, column)
     }
     
     public override func log(level: LogKitLevel, message: NSAttributedString, _ function: String, _ file: String, _ line: Int, _ column: Int) {
-        parent.log(level, message: message, function, file, line, column)
+        parent?.log(level, message: message, function, file, line, column)
     }
     
     // MARK: - Property Redirection
     public override var logElements: [LogKitElement] {
-        get { return parent.logElements }
+        get { return inCaseOfNil([LogKitElement](), parent?.logElements) }
         set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
     }
     
     public override var logElementSeparator: String {
-        get { return parent.logElementSeparator }
+        get { return inCaseOfNil("", parent?.logElementSeparator) }
         set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
     }
     
     public override var playgroundMode: Bool {
-        get { return parent.playgroundMode }
+        get { return inCaseOfNil(false, parent?.playgroundMode) }
         set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
     }
     
     public override var logColors: [LogKitLevel: UIColor] {
-        get { return parent.logColors }
+        get { return inCaseOfNil([LogKitLevel: UIColor](), parent?.logColors) }
         set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
     }
     
@@ -61,12 +69,7 @@ public class ProxyLogger : Logger {
         set { fatalError("Destinations are not accessible on proxy loggers.") }
     }
     
-    public override var useForFrameworks: Bool {
-        get { return false }
-        set { fatalError("You cannot modify useForFrameworks on a proxy logger.") }
-    }
-    
-    public override func loggerForFrameworkWithName(frameworkName: String) -> Logger? {
-        fatalError("You should not call loggerForFrameworkWithName() on ProxyLogger.")
+    public override func useForFrameworks() {
+        fatalError("\(__FUNCTION__) unavailable on proxy loggers.")
     }
 }
