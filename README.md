@@ -95,8 +95,8 @@ Given the framework identifier, options like text attributes, minimum log levels
 LogKit is available under the MIT license. See the LICENSE file for more info.
 
 ## Upcoming Features
-* LogKit Server: 
-* Better logging operators
+* LogKit Server
+* Multithreading trough Grand Central Dispatch
 
 ## Changelog
 
