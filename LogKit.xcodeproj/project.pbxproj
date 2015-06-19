@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		472C10361B340494008FEDAD /* DefaultLogFormat.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 472C10351B340494008FEDAD /* DefaultLogFormat.rtf */; };
-		476D9C921B2F190500644E45 /* ConfigurableRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C911B2F190500644E45 /* ConfigurableRenderer.swift */; };
+		476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */; };
 		476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */; };
 		4794AFBA1AB840BC00E91DC1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* Logger.swift */; };
 		4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB81AB840BC00E91DC1 /* LogMessage.swift */; };
@@ -36,8 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		472C10351B340494008FEDAD /* DefaultLogFormat.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = DefaultLogFormat.rtf; sourceTree = "<group>"; };
-		476D9C911B2F190500644E45 /* ConfigurableRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableRenderer.swift; sourceTree = "<group>"; };
+		476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableLogRenderer.swift; sourceTree = "<group>"; };
 		476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageRendering.swift; sourceTree = "<group>"; };
 		4794AFB71AB840BC00E91DC1 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4794AFB81AB840BC00E91DC1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
@@ -150,8 +148,7 @@
 				F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */,
 				F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */,
 				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
-				476D9C911B2F190500644E45 /* ConfigurableRenderer.swift */,
-				472C10351B340494008FEDAD /* DefaultLogFormat.rtf */,
+				476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */,
 			);
 			name = "Destinations, Renderers, and Transformers";
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				472C10361B340494008FEDAD /* DefaultLogFormat.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +276,7 @@
 			files = (
 				F23BD0131AD6C436005AFD69 /* XcodeColorsTransformer.swift in Sources */,
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
-				476D9C921B2F190500644E45 /* ConfigurableRenderer.swift in Sources */,
+				476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */,
 				476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */,
 				F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,

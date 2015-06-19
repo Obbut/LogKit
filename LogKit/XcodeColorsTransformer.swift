@@ -9,6 +9,8 @@
 import Foundation
 
 public class XcodeColorsTransformer : LogMessageTransforming {
+    public init() {}
+    
     static private let colorEscape = "\u{001b}["
     static private let colorReset = colorEscape + ";"
     static private let colorFgReset = colorEscape + "fg;"

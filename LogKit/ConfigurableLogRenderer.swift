@@ -1,5 +1,5 @@
 //
-//  ConfigurableRenderer.swift
+//  ConfigurableLogRenderer.swift
 //  LogKit
 //
 //  Created by Robbert Brandsma on 15-06-15.
@@ -30,11 +30,13 @@ private extension NSMutableAttributedString {
     var range: NSRange { return NSRange(location: 0, length: self.string.characters.count) }
 }
 
-class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSupported {
+public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSupported {
     
-    var transformers: [LogMessageTransforming] = []
+    public init() {}
     
-    lazy var attributedFormat: NSAttributedString = {
+    public var transformers = [LogMessageTransforming]()
+    
+    public lazy var attributedFormat: NSAttributedString = {
         var str = NSMutableAttributedString()
         
         str.appendAttributedString(NSAttributedString(string: "[%level] "))
@@ -44,12 +46,12 @@ class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSuppo
         return str
     }()
     
-    var format: String {
+    public var format: String {
         get { return attributedFormat.string }
         set { attributedFormat = NSAttributedString(string: newValue) }
     }
     
-    func render(message: LogMessage) -> NSAttributedString {
+    public func render(message: LogMessage) -> NSAttributedString {
         let renderMessage = NSMutableAttributedString(attributedString: attributedFormat)
         
         // FULL FILE PATH
@@ -101,7 +103,10 @@ class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSuppo
             options: .LiteralSearch,
             range: renderMessage.range)
         
-        return renderMessage
+        var transformedMessage = renderMessage as NSAttributedString
+        for tf in transformers { transformedMessage = tf.transform(transformedMessage) }
+        
+        return transformedMessage
     }
     
 }

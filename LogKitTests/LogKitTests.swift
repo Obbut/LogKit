@@ -72,6 +72,10 @@ class LogKitTests: XCTestCase {
     func testEmojiTransformer() {
         let emojiLogger = Logger()
         let dest = LogDestinationConsole()
+        let ren = ConfigurableLogRenderer()
+        ren.transformers = [EmojiTransformer(), XcodeColorsTransformer()]
+        dest.renderer = ren
+        
         emojiLogger.destinations = [dest]
         
         emojiLogger.info("Hey hey :) This is a test of the Emoji logger ;) All these smileys should be automatically replaced.")

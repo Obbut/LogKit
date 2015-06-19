@@ -9,6 +9,7 @@
 import Foundation
 
 public class EmojiTransformer: LogMessageTransforming {
+    public init() {}
     
     static let emojiMapping =
     [
