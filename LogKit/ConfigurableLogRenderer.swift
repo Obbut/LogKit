@@ -18,6 +18,7 @@ The format string can contain:
 - %column
 - %message
 - %level
+- %framework
 
 */
 
@@ -65,14 +66,38 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         
         return str
     }()
-    
     public var format: String {
         get { return attributedFormat.string }
         set { attributedFormat = NSAttributedString(string: newValue) }
     }
     
+    public lazy var attributedFrameworkFormat: NSAttributedString? = {
+        var str = NSMutableAttributedString()
+        
+        str.appendAttributedString(NSAttributedString(string: "[%level] "))
+        str.appendAttributedString(NSAttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: UIColor.purpleColor()]))
+        str.appendAttributedString(NSAttributedString(string: "%message"))
+        
+        return str
+    }()
+    public var frameworkFormat: String? {
+        get { return attributedFrameworkFormat?.string }
+        set {
+            if let val = newValue {
+                attributedFrameworkFormat = NSAttributedString(string: val)
+            } else {
+                attributedFrameworkFormat = nil
+            }
+        }
+    }
+    
     public func render(message: LogMessage) -> NSAttributedString {
-        let renderMessage = NSMutableAttributedString(attributedString: attributedFormat)
+        let renderMessage: NSMutableAttributedString
+        if let frameworkFormat = attributedFrameworkFormat, _ = message.frameworkIdentifier {
+            renderMessage = NSMutableAttributedString(attributedString: frameworkFormat)
+        } else {
+            renderMessage = NSMutableAttributedString(attributedString: attributedFormat)
+        }
         
         // FULL FILE PATH
         renderMessage.mutableString.replaceOccurrencesOfString(
@@ -125,6 +150,14 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         renderMessage.mutableString.replaceOccurrencesOfString(
             "%level",
             withString: message.logLevel.description,
+            options: .LiteralSearch,
+            range: renderMessage.range)
+        
+        // FRAMEWORK
+        let frameworkString = message.frameworkIdentifier ?? ""
+        renderMessage.mutableString.replaceOccurrencesOfString(
+            "%framework",
+            withString: frameworkString,
             options: .LiteralSearch,
             range: renderMessage.range)
         

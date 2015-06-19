@@ -31,7 +31,7 @@ public class Logger: _LoggerType {
     internal func log(level: LogKitLevel, message: NSAttributedString, frameworkIdentifier: String?, _ function: String, _ file: String, _ line: Int, _ column: Int) {
         if let id = frameworkIdentifier where minimumLogLevelForFrameworkWithIdentifier(id) > level { return }
         
-        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column)
+        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, frameworkIdentifier: frameworkIdentifier)
         log(logMessage)
     }
     
