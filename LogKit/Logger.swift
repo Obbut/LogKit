@@ -29,6 +29,8 @@ public class Logger: _LoggerType {
     
     // MARK: - Logging
     internal func log(level: LogKitLevel, message: NSAttributedString, frameworkIdentifier: String?, _ function: String, _ file: String, _ line: Int, _ column: Int) {
+        if let id = frameworkIdentifier where minimumLogLevelForFrameworkWithIdentifier(id) > level { return }
+        
         let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column)
         log(logMessage)
     }
@@ -51,14 +53,7 @@ public class Logger: _LoggerType {
     }
     
     // MARK: - For Frameworks
-    private static var frameworkProxies = [FrameworkLogger]()
-    private static weak var frameworkLogger: Logger? = nil {
-        didSet {
-            for proxy in frameworkProxies {
-                proxy.parent = frameworkLogger
-            }
-        }
-    }
+    internal static weak var frameworkLogger: Logger? = nil
     
     public var useForFrameworks: Bool {
         get { return self === Logger.frameworkLogger }
@@ -66,15 +61,17 @@ public class Logger: _LoggerType {
     }
     
     public class func loggerForFrameworkWithIdentifier(frameworkIdentifier: String) -> FrameworkLogger {
-        let proxies = frameworkProxies.filter { $0.frameworkIdentifier == frameworkIdentifier }
-        assert(proxies.count <= 1, "OMG TOO MANY FRAMEWORK LOGGERS OMGOMGOMG WHAT THE **** IS GOING ON")
-        
-        if proxies.count == 1 {
-            return proxies[0]
-        } else {
-            let proxy = FrameworkLogger(frameworkIdentifier: frameworkIdentifier, parent: frameworkLogger)
-            frameworkProxies.append(proxy)
-            return proxy
-        }
+        return FrameworkLogger(frameworkIdentifier: frameworkIdentifier)
+    }
+    
+    // MARK: - Framework Settings
+    private var frameworkLogLevels = [String: LogKitLevel]()
+    public func setMinimumLogLevel(level: LogKitLevel, forFrameworkWithIdentifier identifier: String) {
+        frameworkLogLevels[identifier] = level
+    }
+    
+    /// The default minimum log level for every framework is warning.
+    public func minimumLogLevelForFrameworkWithIdentifier(identifier: String) -> LogKitLevel {
+        return frameworkLogLevels[identifier] ?? .Warning
     }
 }

@@ -85,5 +85,11 @@ class LogKitTests: XCTestCase {
     func testForFrameworks() {
         let fwl = Logger.loggerForFrameworkWithIdentifier("com.robbertbrandsma.test")
         fwl.warning("With the default configuration, this should be readable!")
+        fwl.debug("This however, should NOT be readable with the deafault configuration.")
+        
+        log.setMinimumLogLevel(.Warning, forFrameworkWithIdentifier: "com.robbertbrandsma.test")
+        
+        fwl.warning("This should be readable")
+        fwl.info("This should not be readable.")
     }
 }
