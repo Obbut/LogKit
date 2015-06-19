@@ -103,7 +103,7 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
             options: .LiteralSearch,
             range: renderMessage.range)
         
-        var transformedMessage = renderMessage as NSAttributedString
+        var transformedMessage = renderMessage
         for tf in transformers { transformedMessage = tf.transform(transformedMessage) }
         
         return transformedMessage

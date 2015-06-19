@@ -34,9 +34,8 @@ public class XcodeColorsTransformer : LogMessageTransforming {
         return colorEscape + type + "\(Int(r * 255.0)),\(Int(g * 255.0)),\(Int(b * 255.0));"
     }
     
-    public func transform(message: NSAttributedString) -> NSAttributedString {
-        let xcodeColorsText = NSMutableString(string: message.string)
-        
+    public func transform(message: NSMutableAttributedString) -> NSMutableAttributedString {
+        let xcodeColorsText = NSMutableAttributedString(attributedString: message)
         
         var shiftedCharacters = 0
         message.enumerateAttributesInRange(NSRange(location: 0,length: message.length), options: .LongestEffectiveRangeNotRequired) {
@@ -46,7 +45,7 @@ public class XcodeColorsTransformer : LogMessageTransforming {
             if let fgcolor = attrs[NSForegroundColorAttributeName] as? UIColor {
                 resetFgColor = true
                 let fgColorString = XcodeColorsTransformer.setColorString(forColor: fgcolor, attribute: NSForegroundColorAttributeName)
-                xcodeColorsText.insertString(fgColorString, atIndex: range.location + shiftedCharacters)
+                xcodeColorsText.mutableString.insertString(fgColorString, atIndex: range.location + shiftedCharacters)
                 shiftedCharacters += (fgColorString as NSString).length
             }
             
@@ -54,21 +53,21 @@ public class XcodeColorsTransformer : LogMessageTransforming {
             if let bgcolor = attrs[NSBackgroundColorAttributeName] as? UIColor {
                 resetBgColor = true
                 let bgColorString = XcodeColorsTransformer.setColorString(forColor: bgcolor, attribute: NSBackgroundColorAttributeName)
-                xcodeColorsText.insertString(bgColorString, atIndex: range.location + shiftedCharacters)
+                xcodeColorsText.mutableString.insertString(bgColorString, atIndex: range.location + shiftedCharacters)
                 shiftedCharacters += (bgColorString as NSString).length
             }
             
             if (resetFgColor) {
-                xcodeColorsText.insertString(XcodeColorsTransformer.colorFgReset, atIndex: range.location + range.length + shiftedCharacters)
+                xcodeColorsText.mutableString.insertString(XcodeColorsTransformer.colorFgReset, atIndex: range.location + range.length + shiftedCharacters)
                 shiftedCharacters += (XcodeColorsTransformer.colorFgReset as NSString).length
             }
             
             if (resetBgColor) {
-                xcodeColorsText.insertString(XcodeColorsTransformer.colorBgReset, atIndex: range.location + range.length + shiftedCharacters)
+                xcodeColorsText.mutableString.insertString(XcodeColorsTransformer.colorBgReset, atIndex: range.location + range.length + shiftedCharacters)
                 shiftedCharacters += (XcodeColorsTransformer.colorBgReset as NSString).length
             }
         }
         
-        return NSAttributedString(string: xcodeColorsText as String)
+        return xcodeColorsText
     }
 }

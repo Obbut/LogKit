@@ -23,19 +23,17 @@ public class EmojiTransformer: LogMessageTransforming {
         "👍": ["(Y)"],
     ]
     
-    public func transform(message: NSAttributedString) -> NSAttributedString {
-        let mutableMessage = NSMutableAttributedString(attributedString: message)
-        
+    public func transform(message: NSMutableAttributedString) -> NSMutableAttributedString {
         for (emoji, symbols) in EmojiTransformer.emojiMapping {
             for symbol in symbols {
-                let range = (mutableMessage.string as NSString).rangeOfString(symbol, options: .CaseInsensitiveSearch)
+                let range = (message.string as NSString).rangeOfString(symbol, options: .CaseInsensitiveSearch)
                 if range.location != NSNotFound {
-                    mutableMessage.replaceCharactersInRange(range, withString: emoji)
+                    message.replaceCharactersInRange(range, withString: emoji)
                 }
             }
         }
         
-        return mutableMessage
+        return message
     }
     
 }
