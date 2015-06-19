@@ -83,6 +83,7 @@ class LogKitTests: XCTestCase {
     }
     
     func testForFrameworks() {
-        
+        let fwl = Logger.loggerForFrameworkWithIdentifier("com.robbertbrandsma.test")
+        fwl.warning("With the default configuration, this should be readable!")
     }
 }

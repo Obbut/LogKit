@@ -8,7 +8,12 @@
 
 import UIKit
 
-public class Logger {
+public protocol _LoggerType {
+    func log(level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int)
+    func log(level: LogKitLevel, message: NSAttributedString, _ function: String, _ file: String, _ line: Int, _ column: Int)
+}
+
+public class Logger: _LoggerType {
 
     // MARK: Initializer
     public init() {
@@ -39,14 +44,14 @@ public class Logger {
         log(level, message: message, frameworkIdentifier: nil, function, file, line, column)
     }
     
-    public func log(message: LogMessage) {
+    internal func log(message: LogMessage) {
         for destination in self.destinations {
             destination.log(message)
         }
     }
     
     // MARK: - For Frameworks
-    private static var frameworkProxies = [ProxyLogger]()
+    private static var frameworkProxies = [FrameworkLogger]()
     private static weak var frameworkLogger: Logger? = nil {
         didSet {
             for proxy in frameworkProxies {
@@ -55,20 +60,19 @@ public class Logger {
         }
     }
     
-    /// Do not. Ever. Call this method. From a framework. NEVER.
     public var useForFrameworks: Bool {
         get { return self === Logger.frameworkLogger }
         set { Logger.frameworkLogger = self }
     }
     
-    public class func loggerForFrameworkWithName(frameworkName: String) -> Logger {
-        let proxies = frameworkProxies.filter { $0.frameworkName == frameworkName }
-        assert(proxies.count > 1, "OMG TOO MANY FRAMEWORK LOGGERS OMGOMGOMG WHAT THE **** IS GOING ON")
+    public class func loggerForFrameworkWithIdentifier(frameworkIdentifier: String) -> FrameworkLogger {
+        let proxies = frameworkProxies.filter { $0.frameworkIdentifier == frameworkIdentifier }
+        assert(proxies.count <= 1, "OMG TOO MANY FRAMEWORK LOGGERS OMGOMGOMG WHAT THE **** IS GOING ON")
         
         if proxies.count == 1 {
             return proxies[0]
         } else {
-            let proxy = ProxyLogger(frameworkName: frameworkName, parent: frameworkLogger)
+            let proxy = FrameworkLogger(frameworkIdentifier: frameworkIdentifier, parent: frameworkLogger)
             frameworkProxies.append(proxy)
             return proxy
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Logger {
+public extension _LoggerType {
     // MARK: - Convenience Logging with unattributed strings
     public func verbose(message: String, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
         self.log(.Verbose, message: message, function, file, line, column)
