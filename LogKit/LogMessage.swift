@@ -41,6 +41,7 @@ public struct LogMessage {
     public var line: Int
     public var column: Int
     public var frameworkIdentifier: String?
+    public var date = NSDate()
     
     public var fileName: String { return fullFilePath.lastPathComponent }
 }

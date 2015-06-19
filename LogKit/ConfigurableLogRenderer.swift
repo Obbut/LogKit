@@ -19,6 +19,7 @@ The format string can contain:
 - %message
 - %level
 - %framework
+- %date
 
 */
 
@@ -57,11 +58,21 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         .Error: .redColor()
     ]
     
+    public var dateFormat: String {
+        get { return dateFormatter.dateFormat }
+        set { dateFormatter.dateFormat = newValue }
+    }
+    private lazy var dateFormatter: NSDateFormatter = {
+        let dfm = NSDateFormatter()
+        dfm.dateFormat = "HH:mm:ss"
+        return dfm
+    }()
+    
     public lazy var attributedFormat: NSAttributedString = {
         var str = NSMutableAttributedString()
         
-        str.appendAttributedString(NSAttributedString(string: "[%level] "))
-        str.appendAttributedString(NSAttributedString(string: "%filename:%line %function ", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()]))
+        str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
+        str.appendAttributedString(NSAttributedString(string: "%function ", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()]))
         str.appendAttributedString(NSAttributedString(string: "%message"))
         
         return str
@@ -74,7 +85,7 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
     public lazy var attributedFrameworkFormat: NSAttributedString? = {
         var str = NSMutableAttributedString()
         
-        str.appendAttributedString(NSAttributedString(string: "[%level] "))
+        str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
         str.appendAttributedString(NSAttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: UIColor.purpleColor()]))
         str.appendAttributedString(NSAttributedString(string: "%message"))
         
@@ -97,6 +108,16 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
             renderMessage = NSMutableAttributedString(attributedString: frameworkFormat)
         } else {
             renderMessage = NSMutableAttributedString(attributedString: attributedFormat)
+        }
+        
+        // DATE
+        if let _ = renderMessage.string.rangeOfString("%date") {
+            let dateString = dateFormatter.stringFromDate(message.date)
+            renderMessage.mutableString.replaceOccurrencesOfString(
+                "%date",
+                withString: dateString,
+                options: .LiteralSearch,
+                range: renderMessage.range)
         }
         
         // FULL FILE PATH
