@@ -51,3 +51,12 @@ extension Logger {
         self.log(.Error, message: message, function, file, line, column)
     }
 }
+
+/// Constructs a LogDestinationConsole instance, and configures it with an ConfigurableRenderer and XcodeColorsTransformer.
+public func XcodeColorsConsoleDestination() -> LogDestinationConsole {
+    let ld = LogDestinationConsole()
+    let render = ConfigurableLogRenderer()
+    render.transformers = [XcodeColorsTransformer()]
+    ld.renderer = render
+    return ld
+}

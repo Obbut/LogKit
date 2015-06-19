@@ -9,8 +9,12 @@
 import UIKit
 
 /// A concrete subclass of LogDestination that logs to the console using the Swift `print()` function.
-public class LogDestinationConsole: LogDestination {
-    public override func log(message: String) {
-        print(message)
+public class LogDestinationConsole: LogDestination, LogRendererRequiring {
+    public init() {}
+    
+    public lazy var renderer: LogMessageRendering = ConfigurableLogRenderer()
+    
+    public func log(message: LogMessage) {
+        print(renderer.render(message).string)
     }
 }

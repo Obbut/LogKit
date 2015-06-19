@@ -26,10 +26,6 @@ public class ProxyLogger : Logger {
         self.frameworkName = frameworkName
     }
     
-    public override dynamic var debugQuickLookObject: AnyObject? {
-        return "Proxy logger for \(frameworkName)"
-    }
-    
     // MARK: - Logging
     public override func log(message: LogMessage) {
         parent?.log(message)
@@ -44,26 +40,6 @@ public class ProxyLogger : Logger {
     }
     
     // MARK: - Property Redirection
-    public override var logElements: [LogKitElement] {
-        get { return inCaseOfNil([LogKitElement](), parent?.logElements) }
-        set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
-    }
-    
-    public override var logElementSeparator: String {
-        get { return inCaseOfNil("", parent?.logElementSeparator) }
-        set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
-    }
-    
-    public override var playgroundMode: Bool {
-        get { return inCaseOfNil(false, parent?.playgroundMode) }
-        set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
-    }
-    
-    public override var logColors: [LogKitLevel: UIColor] {
-        get { return inCaseOfNil([LogKitLevel: UIColor](), parent?.logColors) }
-        set { fatalError("\(__FUNCTION__) not available on proxy loggers (readonly).") }
-    }
-    
     public override var destinations: [LogDestination] {
         get { fatalError("Destinations are not accessible on proxy loggers.") }
         set { fatalError("Destinations are not accessible on proxy loggers.") }

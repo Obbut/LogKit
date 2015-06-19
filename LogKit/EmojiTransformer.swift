@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class EmojiFormatter: LogMessageFormatter {
+public class EmojiTransformer: LogMessageTransforming {
     
-    static var emojiMapping: [String: [String]] =
+    static let emojiMapping =
     [
         "😃": [":D"],
         "😊": [":)", "(:"],
@@ -22,10 +22,10 @@ public class EmojiFormatter: LogMessageFormatter {
         "👍": ["(Y)"],
     ]
     
-    override public func formatMessage(message: NSAttributedString) -> NSAttributedString {
+    public func transform(message: NSAttributedString) -> NSAttributedString {
         let mutableMessage = NSMutableAttributedString(attributedString: message)
         
-        for (emoji, symbols) in EmojiFormatter.emojiMapping {
+        for (emoji, symbols) in EmojiTransformer.emojiMapping {
             for symbol in symbols {
                 let range = (mutableMessage.string as NSString).rangeOfString(symbol, options: .CaseInsensitiveSearch)
                 if range.location != NSNotFound {
