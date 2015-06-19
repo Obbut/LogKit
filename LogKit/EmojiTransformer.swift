@@ -26,10 +26,7 @@ public class EmojiTransformer: LogMessageTransforming {
     public func transform(message: NSMutableAttributedString) -> NSMutableAttributedString {
         for (emoji, symbols) in EmojiTransformer.emojiMapping {
             for symbol in symbols {
-                let range = (message.string as NSString).rangeOfString(symbol, options: .CaseInsensitiveSearch)
-                if range.location != NSNotFound {
-                    message.replaceCharactersInRange(range, withString: emoji)
-                }
+                message.mutableString.replaceOccurrencesOfString(symbol, withString: emoji, options: .LiteralSearch, range: NSRange(location: 0, length: message.length))
             }
         }
         

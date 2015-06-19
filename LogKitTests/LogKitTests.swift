@@ -78,7 +78,7 @@ class LogKitTests: XCTestCase {
         
         emojiLogger.destinations = [dest]
         
-        emojiLogger.info("Hey hey :) This is a test of the Emoji logger ;) All these smileys should be automatically replaced.")
+        emojiLogger.info("Hey hey :) This is a test of the Emoji logger ;) All these smileys should be automatically replaced. :)")
         emojiLogger.warning("Hopefully it works :|")
     }
     
