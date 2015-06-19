@@ -30,11 +30,31 @@ private extension NSMutableAttributedString {
     var range: NSRange { return NSRange(location: 0, length: self.string.characters.count) }
 }
 
+public struct LogColorSettings {
+    var messageColor: UIColor?
+    var levelColor: UIColor?
+    
+    var color: UIColor? {
+        get { return messageColor == levelColor ? messageColor : nil }
+        set { messageColor = newValue; levelColor = newValue }
+    }
+    
+    public init() {}
+    public init(color: UIColor) { self.color = color }
+}
+
 public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSupported {
     
     public init() {}
     
     public var transformers = [LogMessageTransforming]()
+    public var colors: [LogKitLevel: UIColor] = [
+        .Verbose: .lightGrayColor(),
+        .Debug: .purpleColor(),
+        .Info: UIColor(red: 0, green: 0.6, blue: 0, alpha: 1),
+        .Warning: .orangeColor(),
+        .Error: .redColor()
+    ]
     
     public lazy var attributedFormat: NSAttributedString = {
         var str = NSMutableAttributedString()
@@ -90,6 +110,11 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
             range: renderMessage.range)
         
         // LOG MESSAGE
+        let messagePlaceholderRange = (renderMessage.string as NSString).rangeOfString("%message")
+        if let messageColor = colors[message.logLevel] where messagePlaceholderRange.location != NSNotFound {
+            renderMessage.addAttribute(NSForegroundColorAttributeName, value: messageColor, range: messagePlaceholderRange)
+        }
+        
         renderMessage.mutableString.replaceOccurrencesOfString(
             "%message",
             withString: message.text,
