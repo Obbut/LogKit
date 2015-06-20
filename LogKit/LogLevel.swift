@@ -8,10 +8,10 @@
 
 import Foundation
 
-public enum LogKitLevel {
+public enum LogKitLevel: UInt, CustomStringConvertible, Comparable {
     case Verbose, Debug, Info, Warning, Error
     
-    var description: String {
+    public var description: String {
         switch self {
         case .Verbose:
             return "Verbose"
@@ -25,4 +25,8 @@ public enum LogKitLevel {
             return "Error"
         }
     }
+}
+
+public func <(left: LogKitLevel, right: LogKitLevel) -> Bool {
+    return left.rawValue < right.rawValue
 }

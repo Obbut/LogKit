@@ -7,23 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */; };
+		476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */; };
 		4794AFBA1AB840BC00E91DC1 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* Logger.swift */; };
 		4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB81AB840BC00E91DC1 /* LogMessage.swift */; };
 		4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB91AB840BC00E91DC1 /* LogDestination.swift */; };
 		4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */; };
 		F23B46371AAE27AC00BBFB7A /* LogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F23B46361AAE27AC00BBFB7A /* LogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F23B463D1AAE27AC00BBFB7A /* LogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23B46311AAE27AC00BBFB7A /* LogKit.framework */; };
-		F23BD0101AD6C237005AFD69 /* LogMessageEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD00F1AD6C237005AFD69 /* LogMessageEncoder.swift */; };
-		F23BD0131AD6C436005AFD69 /* XcodeColorsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0121AD6C436005AFD69 /* XcodeColorsEncoder.swift */; };
-		F23BD0151AD6C564005AFD69 /* LogMessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0141AD6C564005AFD69 /* LogMessageFormatter.swift */; };
-		F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */; };
+		F23BD0101AD6C237005AFD69 /* LogMessageTransforming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD00F1AD6C237005AFD69 /* LogMessageTransforming.swift */; };
+		F23BD0131AD6C436005AFD69 /* XcodeColorsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */; };
 		F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
 		F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
-		F2A70BD31ABB3E8A001FEE0D /* TestLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */; };
-		F2D2DE511AD7C58000D90FC2 /* EmojiFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiFormatter.swift */; };
-		F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC541AB95D65006A7946 /* LogKitElement.swift */; };
+		F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
-		F2EB98191ADF879E004D51D3 /* ProxyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */; };
+		F2EB98191ADF879E004D51D3 /* FrameworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableLogRenderer.swift; sourceTree = "<group>"; };
+		476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageRendering.swift; sourceTree = "<group>"; };
 		4794AFB71AB840BC00E91DC1 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4794AFB81AB840BC00E91DC1 /* LogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		4794AFB91AB840BC00E91DC1 /* LogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestination.swift; sourceTree = "<group>"; };
@@ -47,18 +47,14 @@
 		F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23B46421AAE27AC00BBFB7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23B464F1AAE29AF00BBFB7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F23BD00F1AD6C237005AFD69 /* LogMessageEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageEncoder.swift; sourceTree = "<group>"; };
-		F23BD0121AD6C436005AFD69 /* XcodeColorsEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsEncoder.swift; sourceTree = "<group>"; };
-		F23BD0141AD6C564005AFD69 /* LogMessageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageFormatter.swift; sourceTree = "<group>"; };
+		F23BD00F1AD6C237005AFD69 /* LogMessageTransforming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMessageTransforming.swift; sourceTree = "<group>"; };
+		F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsTransformer.swift; sourceTree = "<group>"; };
 		F274B4231AD66BFF006B12B7 /* LogKit Tutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "LogKit Tutorial.playground"; sourceTree = "<group>"; };
-		F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitOperators.swift; sourceTree = "<group>"; };
 		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
 		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
-		F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLogDestination.swift; sourceTree = "<group>"; };
-		F2D2DE501AD7C58000D90FC2 /* EmojiFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiFormatter.swift; sourceTree = "<group>"; };
-		F2E5EC541AB95D65006A7946 /* LogKitElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitElement.swift; sourceTree = "<group>"; };
+		F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiTransformer.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
-		F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyLogger.swift; sourceTree = "<group>"; };
+		F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +76,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		476D9C8C1B2F182100644E45 /* Core Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
+				F23BD00F1AD6C237005AFD69 /* LogMessageTransforming.swift */,
+				476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */,
+			);
+			name = "Core Protocols";
+			sourceTree = "<group>";
+		};
 		F23B46271AAE27AC00BBFB7A = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +109,7 @@
 		F23B46331AAE27AC00BBFB7A /* LogKit */ = {
 			isa = PBXGroup;
 			children = (
-				F23BD0111AD6C422005AFD69 /* Formatters and Encoders */,
-				F2A70BCD1ABB3D13001FEE0D /* Log Destinations */,
+				F23BD0111AD6C422005AFD69 /* Destinations, Renderers, and Transformers */,
 				F2A70BCC1ABB3CE8001FEE0D /* Core */,
 				F23B46361AAE27AC00BBFB7A /* LogKit.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
@@ -124,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				4794AFBD1AB8410E00E91DC1 /* LogKitTests.swift */,
-				F2A70BD21ABB3E8A001FEE0D /* TestLogDestination.swift */,
 				F23B46411AAE27AC00BBFB7A /* Supporting Files */,
 			);
 			path = LogKitTests;
@@ -138,38 +142,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F23BD0111AD6C422005AFD69 /* Formatters and Encoders */ = {
+		F23BD0111AD6C422005AFD69 /* Destinations, Renderers, and Transformers */ = {
 			isa = PBXGroup;
 			children = (
-				F23BD0121AD6C436005AFD69 /* XcodeColorsEncoder.swift */,
-				F2D2DE501AD7C58000D90FC2 /* EmojiFormatter.swift */,
+				F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */,
+				F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */,
+				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
+				476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */,
 			);
-			name = "Formatters and Encoders";
+			name = "Destinations, Renderers, and Transformers";
 			sourceTree = "<group>";
 		};
 		F2A70BCC1ABB3CE8001FEE0D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F2EB98181ADF879E004D51D3 /* ProxyLogger.swift */,
+				476D9C8C1B2F182100644E45 /* Core Protocols */,
+				F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */,
 				4794AFB71AB840BC00E91DC1 /* Logger.swift */,
 				F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */,
-				F2A70BC81ABB3C74001FEE0D /* LogKitOperators.swift */,
-				F2E5EC541AB95D65006A7946 /* LogKitElement.swift */,
 				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
 				F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */,
-				F23BD00F1AD6C237005AFD69 /* LogMessageEncoder.swift */,
-				F23BD0141AD6C564005AFD69 /* LogMessageFormatter.swift */,
 			);
 			name = Core;
-			sourceTree = "<group>";
-		};
-		F2A70BCD1ABB3D13001FEE0D /* Log Destinations */ = {
-			isa = PBXGroup;
-			children = (
-				4794AFB91AB840BC00E91DC1 /* LogDestination.swift */,
-				F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */,
-			);
-			name = "Log Destinations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,18 +274,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23BD0131AD6C436005AFD69 /* XcodeColorsEncoder.swift in Sources */,
+				F23BD0131AD6C436005AFD69 /* XcodeColorsTransformer.swift in Sources */,
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
-				F2A70BC91ABB3C74001FEE0D /* LogKitOperators.swift in Sources */,
-				F2D2DE511AD7C58000D90FC2 /* EmojiFormatter.swift in Sources */,
+				476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */,
+				476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */,
+				F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
-				F23BD0101AD6C237005AFD69 /* LogMessageEncoder.swift in Sources */,
-				F2EB98191ADF879E004D51D3 /* ProxyLogger.swift in Sources */,
+				F23BD0101AD6C237005AFD69 /* LogMessageTransforming.swift in Sources */,
+				F2EB98191ADF879E004D51D3 /* FrameworkLogger.swift in Sources */,
 				F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */,
 				4794AFBC1AB840BC00E91DC1 /* LogDestination.swift in Sources */,
 				F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */,
-				F23BD0151AD6C564005AFD69 /* LogMessageFormatter.swift in Sources */,
-				F2E5EC551AB95D65006A7946 /* LogKitElement.swift in Sources */,
 				4794AFBA1AB840BC00E91DC1 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */,
-				F2A70BD31ABB3E8A001FEE0D /* TestLogDestination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -441,6 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};
@@ -452,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -463,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};

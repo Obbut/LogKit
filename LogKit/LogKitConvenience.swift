@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Logger {
+public extension _LoggerType {
     // MARK: - Convenience Logging with unattributed strings
     public func verbose(message: String, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
         self.log(.Verbose, message: message, function, file, line, column)
@@ -50,4 +50,13 @@ extension Logger {
     public func error(message: NSAttributedString, function: String = __FUNCTION__, file: String = __FILE__, line: Int = __LINE__, column: Int =  __COLUMN__) {
         self.log(.Error, message: message, function, file, line, column)
     }
+}
+
+/// Constructs a LogDestinationConsole instance, and configures it with an ConfigurableRenderer and XcodeColorsTransformer.
+public func XcodeColorsConsoleDestination() -> LogDestinationConsole {
+    let ld = LogDestinationConsole()
+    let render = ConfigurableLogRenderer()
+    render.transformers = [XcodeColorsTransformer()]
+    ld.renderer = render
+    return ld
 }

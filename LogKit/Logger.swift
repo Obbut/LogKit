@@ -8,78 +8,70 @@
 
 import UIKit
 
-public class Logger {
+public protocol _LoggerType {
+    func log(level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int)
+    func log(level: LogKitLevel, message: NSAttributedString, _ function: String, _ file: String, _ line: Int, _ column: Int)
+}
+
+public class Logger: _LoggerType {
 
     // MARK: Initializer
-    public init() { }
+    public init() {
+        if Logger.frameworkLogger == nil {
+            self.useForFrameworks = true
+        }
+    }
 
     // MARK: - Settings
-    public var logElements: [LogKitElement] = [.Static("["), .LogLevel, .Static("]"), .FileName, .FunctionName, .LogMessage]
-    public var logElementSeparator = " "
-    public var playgroundMode = false
-
-    public var logColors: [LogKitLevel: UIColor] = [
-        .Verbose: UIColor.lightGrayColor(),
-        .Debug: UIColor.purpleColor(),
-        .Info: UIColor.greenColor(),
-        .Warning: UIColor.orangeColor(),
-        .Error: UIColor.redColor()
-    ]
-    
     lazy public var destinations: [LogDestination] = {
         return [LogDestinationConsole()]
         }()
     
-    // MARK: - State
-    private var lastLogMessageForPlaygroundMode: LogMessage?
-
     // MARK: - Logging
+    internal func log(level: LogKitLevel, message: NSAttributedString, frameworkIdentifier: String?, _ function: String, _ file: String, _ line: Int, _ column: Int) {
+        if let id = frameworkIdentifier where minimumLogLevelForFrameworkWithIdentifier(id) > level { return }
+        
+        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, frameworkIdentifier: frameworkIdentifier)
+        log(logMessage)
+    }
+    
     public func log(level: LogKitLevel, message: String, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
-        
-        let attributedMessage: NSAttributedString
-        
-        if let fgColor = logColors[level] {
-            attributedMessage = NSAttributedString(string: message, attributes: [NSForegroundColorAttributeName: fgColor])
-        } else {
-            attributedMessage = NSAttributedString(string: message)
-        }
+        let attributedMessage = NSAttributedString(string: message)
         
         self.log(level, message: attributedMessage, function, file, line, column)
     }
     
     public func log(level: LogKitLevel, message: NSAttributedString, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__, _ column: Int =  __COLUMN__) {
-        let logMessage = LogMessage(text: message, logLevel: level, function: function, fullFilePath: file, line: line, column: column, elements: self.logElements)
-        
-        log(logMessage)
+        // Forward to the internal logging function
+        log(level, message: message, frameworkIdentifier: nil, function, file, line, column)
     }
     
-    public func log(message: LogMessage) {
-        if (playgroundMode) {
-            lastLogMessageForPlaygroundMode = message
-        }
-        
+    internal func log(message: LogMessage) {
         for destination in self.destinations {
-            destination.prepareAndLogMessage(message)
-        }
-    }
-    
-    public dynamic var debugQuickLookObject: AnyObject? {
-        if (playgroundMode) {
-            let text = lastLogMessageForPlaygroundMode?.loggableAttributedText
-            lastLogMessageForPlaygroundMode = nil
-            return text
-        } else {
-            return "Logger with \(destinations.count) destination(s)"
+            destination.log(message)
         }
     }
     
     // MARK: - For Frameworks
-    public var useForFrameworks = false
-    public func loggerForFrameworkWithName(frameworkName: String) -> Logger? {
-        if self.useForFrameworks {
-            return ProxyLogger(frameworkName: frameworkName, parent: self)
-        } else {
-            return nil
-        }
+    internal static weak var frameworkLogger: Logger? = nil
+    
+    public var useForFrameworks: Bool {
+        get { return self === Logger.frameworkLogger }
+        set { Logger.frameworkLogger = self }
+    }
+    
+    public class func loggerForFrameworkWithIdentifier(frameworkIdentifier: String) -> FrameworkLogger {
+        return FrameworkLogger(frameworkIdentifier: frameworkIdentifier)
+    }
+    
+    // MARK: - Framework Settings
+    private var frameworkLogLevels = [String: LogKitLevel]()
+    public func setMinimumLogLevel(level: LogKitLevel, forFrameworkWithIdentifier identifier: String) {
+        frameworkLogLevels[identifier] = level
+    }
+    
+    /// The default minimum log level for every framework is warning.
+    public func minimumLogLevelForFrameworkWithIdentifier(identifier: String) -> LogKitLevel {
+        return frameworkLogLevels[identifier] ?? .Warning
     }
 }
