@@ -1,4 +1,6 @@
 # LogKit
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 LogKit is an easy to use logging library for Swift projects, written in Swift. It supports logging with operators, XcodeColors, customizable log messages and more. LogKit does not support Objective C projects.
 
 ## Usage
