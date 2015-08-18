@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Robbert Brandsma. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public protocol _LoggerType {
     func log(level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int)

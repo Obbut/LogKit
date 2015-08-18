@@ -33,16 +33,16 @@ private extension NSMutableAttributedString {
 }
 
 public struct LogColorSettings {
-    var messageColor: UIColor?
-    var levelColor: UIColor?
+    var messageColor: LKColor?
+    var levelColor: LKColor?
     
-    var color: UIColor? {
+    var color: LKColor? {
         get { return messageColor == levelColor ? messageColor : nil }
         set { messageColor = newValue; levelColor = newValue }
     }
     
     public init() {}
-    public init(color: UIColor) { self.color = color }
+    public init(color: LKColor) { self.color = color }
 }
 
 public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformingSupported {
@@ -50,10 +50,10 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
     public init() {}
     
     public var transformers = [LogMessageTransforming]()
-    public var colors: [LogKitLevel: UIColor] = [
+    public var colors: [LogKitLevel: LKColor] = [
         .Verbose: .lightGrayColor(),
         .Debug: .purpleColor(),
-        .Info: UIColor(red: 0, green: 0.6, blue: 0, alpha: 1),
+        .Info: LKColor(red: 0, green: 0.6, blue: 0, alpha: 1),
         .Warning: .orangeColor(),
         .Error: .redColor()
     ]
@@ -72,7 +72,7 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         var str = NSMutableAttributedString()
         
         str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
-        str.appendAttributedString(NSAttributedString(string: "%function ", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()]))
+        str.appendAttributedString(NSAttributedString(string: "%function ", attributes: [NSForegroundColorAttributeName: LKColor.grayColor()]))
         str.appendAttributedString(NSAttributedString(string: "%message"))
         
         return str
@@ -86,7 +86,7 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         var str = NSMutableAttributedString()
         
         str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
-        str.appendAttributedString(NSAttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: UIColor.purpleColor()]))
+        str.appendAttributedString(NSAttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: LKColor.purpleColor()]))
         str.appendAttributedString(NSAttributedString(string: "%message"))
         
         return str

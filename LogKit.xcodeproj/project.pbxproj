@@ -19,6 +19,21 @@
 		F23BD0131AD6C436005AFD69 /* XcodeColorsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */; };
 		F2A70BCB1ABB3CB5001FEE0D /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
 		F2A70BD11ABB3D52001FEE0D /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
+		F2BEB7CB1B838142004DE9D2 /* LogKitMac.h in Headers */ = {isa = PBXBuildFile; fileRef = F2BEB7CA1B838142004DE9D2 /* LogKitMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2BEB7D01B8381A0004DE9D2 /* FrameworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */; };
+		F2BEB7D11B8381A0004DE9D2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB71AB840BC00E91DC1 /* Logger.swift */; };
+		F2BEB7D21B8381A0004DE9D2 /* LogKitConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */; };
+		F2BEB7D31B8381A0004DE9D2 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB81AB840BC00E91DC1 /* LogMessage.swift */; };
+		F2BEB7D41B8381A0004DE9D2 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */; };
+		F2BEB7D51B8381A7004DE9D2 /* LogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4794AFB91AB840BC00E91DC1 /* LogDestination.swift */; };
+		F2BEB7D61B8381A7004DE9D2 /* LogMessageTransforming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD00F1AD6C237005AFD69 /* LogMessageTransforming.swift */; };
+		F2BEB7D71B8381A7004DE9D2 /* LogMessageRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C951B2F1BC500644E45 /* LogMessageRendering.swift */; };
+		F2BEB7D81B8381AD004DE9D2 /* XcodeColorsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BD0121AD6C436005AFD69 /* XcodeColorsTransformer.swift */; };
+		F2BEB7D91B8381AD004DE9D2 /* EmojiTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */; };
+		F2BEB7DA1B8381AD004DE9D2 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
+		F2BEB7DB1B8381AD004DE9D2 /* ConfigurableLogRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */; };
+		F2BEB7DD1B838382004DE9D2 /* LogKitSupporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */; };
+		F2BEB7DE1B8383E0004DE9D2 /* LogKitSupporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */; };
 		F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
 		F2EB98191ADF879E004D51D3 /* FrameworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */; };
@@ -52,6 +67,10 @@
 		F274B4231AD66BFF006B12B7 /* LogKit Tutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "LogKit Tutorial.playground"; sourceTree = "<group>"; };
 		F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitConvenience.swift; sourceTree = "<group>"; };
 		F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		F2BEB7C81B838142004DE9D2 /* LogKitMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LogKitMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2BEB7CA1B838142004DE9D2 /* LogKitMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogKitMac.h; sourceTree = "<group>"; };
+		F2BEB7CC1B838142004DE9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitSupporting.swift; sourceTree = "<group>"; };
 		F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiTransformer.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
 		F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkLogger.swift; sourceTree = "<group>"; };
@@ -70,6 +89,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23B463D1AAE27AC00BBFB7A /* LogKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2BEB7C41B838142004DE9D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +119,7 @@
 				F23B464F1AAE29AF00BBFB7A /* README.md */,
 				F23B46331AAE27AC00BBFB7A /* LogKit */,
 				F23B46401AAE27AC00BBFB7A /* LogKitTests */,
+				F2BEB7C91B838142004DE9D2 /* LogKitMac */,
 				F23B46321AAE27AC00BBFB7A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +129,7 @@
 			children = (
 				F23B46311AAE27AC00BBFB7A /* LogKit.framework */,
 				F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */,
+				F2BEB7C81B838142004DE9D2 /* LogKitMac.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,8 +190,18 @@
 				F2A70BCA1ABB3CB5001FEE0D /* LogKitConvenience.swift */,
 				4794AFB81AB840BC00E91DC1 /* LogMessage.swift */,
 				F2A70BD01ABB3D52001FEE0D /* LogLevel.swift */,
+				F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		F2BEB7C91B838142004DE9D2 /* LogKitMac */ = {
+			isa = PBXGroup;
+			children = (
+				F2BEB7CA1B838142004DE9D2 /* LogKitMac.h */,
+				F2BEB7CC1B838142004DE9D2 /* Info.plist */,
+			);
+			path = LogKitMac;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +212,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23B46371AAE27AC00BBFB7A /* LogKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2BEB7C51B838142004DE9D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2BEB7CB1B838142004DE9D2 /* LogKitMac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +262,24 @@
 			productReference = F23B463C1AAE27AC00BBFB7A /* LogKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F2BEB7C71B838142004DE9D2 /* LogKitMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2BEB7CF1B838142004DE9D2 /* Build configuration list for PBXNativeTarget "LogKitMac" */;
+			buildPhases = (
+				F2BEB7C31B838142004DE9D2 /* Sources */,
+				F2BEB7C41B838142004DE9D2 /* Frameworks */,
+				F2BEB7C51B838142004DE9D2 /* Headers */,
+				F2BEB7C61B838142004DE9D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogKitMac;
+			productName = LogKitMac;
+			productReference = F2BEB7C81B838142004DE9D2 /* LogKitMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,6 +295,9 @@
 					};
 					F23B463B1AAE27AC00BBFB7A = {
 						CreatedOnToolsVersion = 6.3;
+					};
+					F2BEB7C71B838142004DE9D2 = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
@@ -248,6 +315,7 @@
 			targets = (
 				F23B46301AAE27AC00BBFB7A /* LogKit */,
 				F23B463B1AAE27AC00BBFB7A /* LogKitTests */,
+				F2BEB7C71B838142004DE9D2 /* LogKitMac */,
 			);
 		};
 /* End PBXProject section */
@@ -267,6 +335,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2BEB7C61B838142004DE9D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -277,6 +352,7 @@
 				F23BD0131AD6C436005AFD69 /* XcodeColorsTransformer.swift in Sources */,
 				4794AFBB1AB840BC00E91DC1 /* LogMessage.swift in Sources */,
 				476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */,
+				F2BEB7DD1B838382004DE9D2 /* LogKitSupporting.swift in Sources */,
 				476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */,
 				F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
@@ -294,6 +370,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				4794AFBE1AB8410E00E91DC1 /* LogKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2BEB7C31B838142004DE9D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2BEB7D01B8381A0004DE9D2 /* FrameworkLogger.swift in Sources */,
+				F2BEB7D71B8381A7004DE9D2 /* LogMessageRendering.swift in Sources */,
+				F2BEB7D51B8381A7004DE9D2 /* LogDestination.swift in Sources */,
+				F2BEB7DE1B8383E0004DE9D2 /* LogKitSupporting.swift in Sources */,
+				F2BEB7D21B8381A0004DE9D2 /* LogKitConvenience.swift in Sources */,
+				F2BEB7D31B8381A0004DE9D2 /* LogMessage.swift in Sources */,
+				F2BEB7D61B8381A7004DE9D2 /* LogMessageTransforming.swift in Sources */,
+				F2BEB7DB1B8381AD004DE9D2 /* ConfigurableLogRenderer.swift in Sources */,
+				F2BEB7DA1B8381AD004DE9D2 /* LogDestinationConsole.swift in Sources */,
+				F2BEB7D41B8381A0004DE9D2 /* LogLevel.swift in Sources */,
+				F2BEB7D11B8381A0004DE9D2 /* Logger.swift in Sources */,
+				F2BEB7D91B8381AD004DE9D2 /* EmojiTransformer.swift in Sources */,
+				F2BEB7D81B8381AD004DE9D2 /* XcodeColorsTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +558,48 @@
 			};
 			name = Release;
 		};
+		F2BEB7CD1B838142004DE9D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LogKitMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.RobbertBrandsma.LogKitMac;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F2BEB7CE1B838142004DE9D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = LogKitMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.RobbertBrandsma.LogKitMac;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -491,6 +629,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F2BEB7CF1B838142004DE9D2 /* Build configuration list for PBXNativeTarget "LogKitMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2BEB7CD1B838142004DE9D2 /* Debug */,
+				F2BEB7CE1B838142004DE9D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

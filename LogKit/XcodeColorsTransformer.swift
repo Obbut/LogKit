@@ -16,7 +16,7 @@ public class XcodeColorsTransformer : LogMessageTransforming {
     static private let colorFgReset = colorEscape + "fg;"
     static private let colorBgReset = colorEscape + "bg;"
     
-    private class func setColorString(forColor color: UIColor, attribute: String = NSForegroundColorAttributeName) -> String {
+    private class func setColorString(forColor color: LKColor, attribute: String = NSForegroundColorAttributeName) -> String {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         color.getRed(&r, green: &g, blue: &b, alpha: &a)
         
@@ -42,7 +42,7 @@ public class XcodeColorsTransformer : LogMessageTransforming {
             attrs, range, stop in
             
             var resetFgColor = false
-            if let fgcolor = attrs[NSForegroundColorAttributeName] as? UIColor {
+            if let fgcolor = attrs[NSForegroundColorAttributeName] as? LKColor {
                 resetFgColor = true
                 let fgColorString = XcodeColorsTransformer.setColorString(forColor: fgcolor, attribute: NSForegroundColorAttributeName)
                 xcodeColorsText.mutableString.insertString(fgColorString, atIndex: range.location + shiftedCharacters)
@@ -50,7 +50,7 @@ public class XcodeColorsTransformer : LogMessageTransforming {
             }
             
             var resetBgColor = false
-            if let bgcolor = attrs[NSBackgroundColorAttributeName] as? UIColor {
+            if let bgcolor = attrs[NSBackgroundColorAttributeName] as? LKColor {
                 resetBgColor = true
                 let bgColorString = XcodeColorsTransformer.setColorString(forColor: bgcolor, attribute: NSBackgroundColorAttributeName)
                 xcodeColorsText.mutableString.insertString(bgColorString, atIndex: range.location + shiftedCharacters)

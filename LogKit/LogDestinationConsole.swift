@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Robbert Brandsma. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// A concrete subclass of LogDestination that logs to the console using the Swift `print()` function.
 public class LogDestinationConsole: LogDestination, LogRendererRequiring {

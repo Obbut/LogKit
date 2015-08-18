@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LogKitMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>F23B463B1AAE27AC00BBFB7A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2BEB7C71B838142004DE9D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
