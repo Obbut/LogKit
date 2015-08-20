@@ -43,5 +43,5 @@ public struct LogMessage {
     public var frameworkIdentifier: String?
     public var date = NSDate()
     
-    public var fileName: String { return fullFilePath.lastPathComponent }
+    public var fileName: String { return (fullFilePath as NSString).lastPathComponent }
 }
