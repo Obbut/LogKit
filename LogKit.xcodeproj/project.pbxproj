@@ -34,6 +34,8 @@
 		F2BEB7DB1B8381AD004DE9D2 /* ConfigurableLogRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9C911B2F190500644E45 /* ConfigurableLogRenderer.swift */; };
 		F2BEB7DD1B838382004DE9D2 /* LogKitSupporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */; };
 		F2BEB7DE1B8383E0004DE9D2 /* LogKitSupporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */; };
+		F2C42FE31B87380A0006CDAB /* LogKitInteractiveConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C42FE21B87380A0006CDAB /* LogKitInteractiveConsole.swift */; };
+		F2C42FE41B87380A0006CDAB /* LogKitInteractiveConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C42FE21B87380A0006CDAB /* LogKitInteractiveConsole.swift */; };
 		F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */; };
 		F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */; };
 		F2EB98191ADF879E004D51D3 /* FrameworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */; };
@@ -71,6 +73,7 @@
 		F2BEB7CA1B838142004DE9D2 /* LogKitMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogKitMac.h; sourceTree = "<group>"; };
 		F2BEB7CC1B838142004DE9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2BEB7DC1B838382004DE9D2 /* LogKitSupporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitSupporting.swift; sourceTree = "<group>"; };
+		F2C42FE21B87380A0006CDAB /* LogKitInteractiveConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogKitInteractiveConsole.swift; sourceTree = "<group>"; };
 		F2D2DE501AD7C58000D90FC2 /* EmojiTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiTransformer.swift; sourceTree = "<group>"; };
 		F2E5EC561AB96081006A7946 /* LogDestinationConsole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogDestinationConsole.swift; sourceTree = "<group>"; };
 		F2EB98181ADF879E004D51D3 /* FrameworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkLogger.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 			children = (
 				F23BD0111AD6C422005AFD69 /* Destinations, Renderers, and Transformers */,
 				F2A70BCC1ABB3CE8001FEE0D /* Core */,
+				F2C42FE11B861A580006CDAB /* InteractiveConsole */,
 				F23B46361AAE27AC00BBFB7A /* LogKit.h */,
 				F23B46341AAE27AC00BBFB7A /* Supporting Files */,
 			);
@@ -202,6 +206,14 @@
 				F2BEB7CC1B838142004DE9D2 /* Info.plist */,
 			);
 			path = LogKitMac;
+			sourceTree = "<group>";
+		};
+		F2C42FE11B861A580006CDAB /* InteractiveConsole */ = {
+			isa = PBXGroup;
+			children = (
+				F2C42FE21B87380A0006CDAB /* LogKitInteractiveConsole.swift */,
+			);
+			name = InteractiveConsole;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +366,7 @@
 				476D9C921B2F190500644E45 /* ConfigurableLogRenderer.swift in Sources */,
 				F2BEB7DD1B838382004DE9D2 /* LogKitSupporting.swift in Sources */,
 				476D9C961B2F1BC500644E45 /* LogMessageRendering.swift in Sources */,
+				F2C42FE31B87380A0006CDAB /* LogKitInteractiveConsole.swift in Sources */,
 				F2D2DE511AD7C58000D90FC2 /* EmojiTransformer.swift in Sources */,
 				F2E5EC571AB96081006A7946 /* LogDestinationConsole.swift in Sources */,
 				F23BD0101AD6C237005AFD69 /* LogMessageTransforming.swift in Sources */,
@@ -382,6 +395,7 @@
 				F2BEB7D51B8381A7004DE9D2 /* LogDestination.swift in Sources */,
 				F2BEB7DE1B8383E0004DE9D2 /* LogKitSupporting.swift in Sources */,
 				F2BEB7D21B8381A0004DE9D2 /* LogKitConvenience.swift in Sources */,
+				F2C42FE41B87380A0006CDAB /* LogKitInteractiveConsole.swift in Sources */,
 				F2BEB7D31B8381A0004DE9D2 /* LogMessage.swift in Sources */,
 				F2BEB7D61B8381A7004DE9D2 /* LogMessageTransforming.swift in Sources */,
 				F2BEB7DB1B8381AD004DE9D2 /* ConfigurableLogRenderer.swift in Sources */,
@@ -511,7 +525,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -561,6 +574,7 @@
 		F2BEB7CD1B838142004DE9D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -576,12 +590,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
 		};
 		F2BEB7CE1B838142004DE9D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -597,6 +613,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};
@@ -637,6 +654,7 @@
 				F2BEB7CE1B838142004DE9D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

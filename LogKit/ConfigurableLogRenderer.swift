@@ -123,21 +123,21 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         // FULL FILE PATH
         renderMessage.mutableString.replaceOccurrencesOfString(
             "%fullfilepath",
-            withString: message.fullFilePath,
+            withString: message.fullFilePath ?? "",
             options: .LiteralSearch,
             range: renderMessage.range)
         
         // FILE NAME
         renderMessage.mutableString.replaceOccurrencesOfString(
             "%filename",
-            withString: message.fileName,
+            withString: message.fileName ?? "",
             options: .LiteralSearch,
             range: renderMessage.range)
         
         // FUNCTION
         renderMessage.mutableString.replaceOccurrencesOfString(
             "%function",
-            withString: message.function,
+            withString: message.function ?? "",
             options: .LiteralSearch,
             range: renderMessage.range)
         
