@@ -11,5 +11,5 @@
 import Foundation
 
 public protocol LogDestination {
-    func log(message: LogMessage)
+    func log(_ message: LogMessage)
 }

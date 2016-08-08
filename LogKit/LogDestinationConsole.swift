@@ -14,7 +14,7 @@ public class LogDestinationConsole: LogDestination, LogRendererRequiring {
     
     public lazy var renderer: LogMessageRendering = ConfigurableLogRenderer()
     
-    public func log(message: LogMessage) {
+    public func log(_ message: LogMessage) {
         print(renderer.render(message).string)
     }
 }

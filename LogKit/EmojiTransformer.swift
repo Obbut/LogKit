@@ -23,10 +23,10 @@ public class EmojiTransformer: LogMessageTransforming {
         "👍": ["(Y)"],
     ]
     
-    public func transform(message: NSMutableAttributedString) -> NSMutableAttributedString {
+    public func transform(_ message: NSMutableAttributedString) -> NSMutableAttributedString {
         for (emoji, symbols) in EmojiTransformer.emojiMapping {
             for symbol in symbols {
-                message.mutableString.replaceOccurrencesOfString(symbol, withString: emoji, options: .LiteralSearch, range: NSRange(location: 0, length: message.length))
+                message.mutableString.replaceOccurrences(of: symbol, with: emoji, options: .literal, range: NSRange(location: 0, length: message.length))
             }
         }
         

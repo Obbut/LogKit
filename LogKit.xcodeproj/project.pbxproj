@@ -304,9 +304,11 @@
 				TargetAttributes = {
 					F23B46301AAE27AC00BBFB7A = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0800;
 					};
 					F23B463B1AAE27AC00BBFB7A = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0800;
 					};
 					F2BEB7C71B838142004DE9D2 = {
 						CreatedOnToolsVersion = 7.0;
@@ -525,6 +527,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -544,6 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -556,6 +560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -568,6 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.RobbertBrandsma.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

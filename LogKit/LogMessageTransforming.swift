@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LogMessageTransforming {
-    func transform(message: NSMutableAttributedString) -> NSMutableAttributedString
+    func transform(_ message: NSMutableAttributedString) -> NSMutableAttributedString
 }
 
 public protocol LogMessageTransformingSupported {
@@ -19,7 +19,7 @@ public protocol LogMessageTransformingSupported {
 
 public extension LogMessageRendering where Self : LogMessageTransformingSupported {
     
-    public func transform(message: NSAttributedString) -> NSMutableAttributedString {
+    public func transform(_ message: AttributedString) -> NSMutableAttributedString {
         var transformedMessage = NSMutableAttributedString(attributedString: message)
         for transformer in transformers { transformedMessage = transformer.transform(transformedMessage) }
         return transformedMessage

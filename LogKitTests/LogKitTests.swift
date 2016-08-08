@@ -12,7 +12,7 @@ import LogKit
 
 let log = Logger()
 
-func assertMessage(expected: String, message: String) {
+func assertMessage(_ expected: String, message: String) {
 //    XCTAssertEqual(testDest.lastMessage.loggableText, expected, message)
 }
 
@@ -88,7 +88,7 @@ class LogKitTests: XCTestCase {
         fwl.warning("With the default configuration, this should be readable!")
         fwl.debug("This however, should NOT be readable with the deafault configuration.")
         
-        log.setMinimumLogLevel(.Warning, forFrameworkWithIdentifier: "com.robbertbrandsma.test")
+        log.setMinimumLogLevel(.warning, forFrameworkWithIdentifier: "com.robbertbrandsma.test")
         
         fwl.warning("This should be readable")
         fwl.info("This should not be readable.")

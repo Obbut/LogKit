@@ -17,11 +17,11 @@ public class FrameworkLogger : _LoggerType {
     }
     
     // MARK: - Logging
-    public func log(level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int) {
-        Logger.frameworkLogger?.log(level, message: NSAttributedString(string: message), frameworkIdentifier: frameworkIdentifier, function, file, line, column)
+    public func log(_ level: LogKitLevel, message: String, _ function: String, _ file: String, _ line: Int, _ column: Int) {
+        Logger.frameworkLogger?.log(level, message: AttributedString(string: message), frameworkIdentifier: frameworkIdentifier, function, file, line, column)
     }
     
-    public func log(level: LogKitLevel, message: NSAttributedString, _ function: String, _ file: String, _ line: Int, _ column: Int) {
+    public func log(_ level: LogKitLevel, message: AttributedString, _ function: String, _ file: String, _ line: Int, _ column: Int) {
         Logger.frameworkLogger?.log(level, message: message, frameworkIdentifier: frameworkIdentifier, function, file, line, column)
     }
 }

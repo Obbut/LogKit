@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol LogMessageRendering {
-    func render(message: LogMessage) -> NSAttributedString
+    func render(_ message: LogMessage) -> AttributedString
 }
 
 public protocol LogRendererRequiring {

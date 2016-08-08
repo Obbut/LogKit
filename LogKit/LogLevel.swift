@@ -9,21 +9,21 @@
 import Foundation
 
 public enum LogKitLevel : CustomStringConvertible, Equatable, Comparable, Hashable {
-    case Verbose, Debug, Info, Warning, Error, Custom(description: String)
+    case verbose, debug, info, warning, error, custom(description: String)
     
     private var compareValue: Int {
         switch self {
-        case .Verbose:
+        case .verbose:
             return 1
-        case .Debug:
+        case .debug:
             return 2
-        case .Info:
+        case .info:
             return 3
-        case .Warning:
+        case .warning:
             return 4
-        case .Error:
+        case .error:
             return 5
-        case .Custom(_):
+        case .custom(_):
             return 0
         }
     }
@@ -34,17 +34,17 @@ public enum LogKitLevel : CustomStringConvertible, Equatable, Comparable, Hashab
     
     public var description: String {
         switch self {
-        case .Verbose:
+        case .verbose:
             return "Verbose"
-        case .Debug:
+        case .debug:
             return "Debug"
-        case .Info:
+        case .info:
             return "Info"
-        case .Warning:
+        case .warning:
             return "Warning"
-        case .Error:
+        case .error:
             return "Error"
-        case .Custom(let customValue):
+        case .custom(let customValue):
             return customValue
         }
     }
@@ -52,9 +52,9 @@ public enum LogKitLevel : CustomStringConvertible, Equatable, Comparable, Hashab
 
 public func ==(lhs: LogKitLevel, rhs: LogKitLevel) -> Bool {
     switch (lhs, rhs) {
-    case (.Verbose, .Verbose), (.Debug, .Debug), (.Info, .Info), (.Warning, .Warning), (.Error, .Error):
+    case (.verbose, .verbose), (.debug, .debug), (.info, .info), (.warning, .warning), (.error, .error):
         return true
-    case (let .Custom(leftCustom), let .Custom(rightCustom)):
+    case (let .custom(leftCustom), let .custom(rightCustom)):
         return leftCustom == rightCustom
     default:
         return false

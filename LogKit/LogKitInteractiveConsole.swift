@@ -11,8 +11,8 @@ import Foundation
 public class InteractiveConsole : LogDestinationConsole {
     public var commands = [ConsoleCommand]()
     
-    public func write(text: String) {
-        let logMessage = LogMessage(text: text, logLevel: LogKitLevel.Custom(description: text))
+    public func write(_ text: String) {
+        let logMessage = LogMessage(text: text, logLevel: LogKitLevel.custom(description: text))
         self.log(logMessage)
     }
     

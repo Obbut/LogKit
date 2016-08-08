@@ -23,8 +23,8 @@ The format string can contain:
 
 */
 
-func +=(left: NSMutableAttributedString, right: NSAttributedString) -> NSMutableAttributedString {
-    left.appendAttributedString(right)
+func +=(left: NSMutableAttributedString, right: AttributedString) -> NSMutableAttributedString {
+    left.append(right)
     return left
 }
 
@@ -51,43 +51,43 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
     
     public var transformers = [LogMessageTransforming]()
     public var colors: [LogKitLevel: LKColor] = [
-        .Verbose: .lightGrayColor(),
-        .Debug: .purpleColor(),
-        .Info: LKColor(red: 0, green: 0.6, blue: 0, alpha: 1),
-        .Warning: .orangeColor(),
-        .Error: .redColor()
+        .verbose: .lightGray(),
+        .debug: .purple(),
+        .info: LKColor(red: 0, green: 0.6, blue: 0, alpha: 1),
+        .warning: .orange(),
+        .error: .red()
     ]
     
     public var dateFormat: String {
         get { return dateFormatter.dateFormat }
         set { dateFormatter.dateFormat = newValue }
     }
-    private lazy var dateFormatter: NSDateFormatter = {
-        let dfm = NSDateFormatter()
+    private lazy var dateFormatter: DateFormatter = {
+        let dfm = DateFormatter()
         dfm.dateFormat = "HH:mm:ss"
         return dfm
     }()
     
-    public lazy var attributedFormat: NSAttributedString = {
+    public lazy var attributedFormat: AttributedString = {
         var str = NSMutableAttributedString()
         
-        str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
-        str.appendAttributedString(NSAttributedString(string: "%function ", attributes: [NSForegroundColorAttributeName: LKColor.grayColor()]))
-        str.appendAttributedString(NSAttributedString(string: "%message"))
+        str.append(AttributedString(string: "%date [%level] "))
+        str.append(AttributedString(string: "%function ", attributes: [NSForegroundColorAttributeName: LKColor.gray()]))
+        str.append(AttributedString(string: "%message"))
         
         return str
     }()
     public var format: String {
         get { return attributedFormat.string }
-        set { attributedFormat = NSAttributedString(string: newValue) }
+        set { attributedFormat = AttributedString(string: newValue) }
     }
     
-    public lazy var attributedFrameworkFormat: NSAttributedString? = {
+    public lazy var attributedFrameworkFormat: AttributedString? = {
         var str = NSMutableAttributedString()
         
-        str.appendAttributedString(NSAttributedString(string: "%date [%level] "))
-        str.appendAttributedString(NSAttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: LKColor.purpleColor()]))
-        str.appendAttributedString(NSAttributedString(string: "%message"))
+        str.append(AttributedString(string: "%date [%level] "))
+        str.append(AttributedString(string: "%framework ", attributes: [NSForegroundColorAttributeName: LKColor.purple()]))
+        str.append(AttributedString(string: "%message"))
         
         return str
     }()
@@ -95,14 +95,14 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         get { return attributedFrameworkFormat?.string }
         set {
             if let val = newValue {
-                attributedFrameworkFormat = NSAttributedString(string: val)
+                attributedFrameworkFormat = AttributedString(string: val)
             } else {
                 attributedFrameworkFormat = nil
             }
         }
     }
     
-    public func render(message: LogMessage) -> NSAttributedString {
+    public func render(_ message: LogMessage) -> AttributedString {
         let renderMessage: NSMutableAttributedString
         if let frameworkFormat = attributedFrameworkFormat, _ = message.frameworkIdentifier {
             renderMessage = NSMutableAttributedString(attributedString: frameworkFormat)
@@ -111,75 +111,75 @@ public class ConfigurableLogRenderer : LogMessageRendering, LogMessageTransformi
         }
         
         // DATE
-        if let _ = renderMessage.string.rangeOfString("%date") {
-            let dateString = dateFormatter.stringFromDate(message.date)
-            renderMessage.mutableString.replaceOccurrencesOfString(
-                "%date",
-                withString: dateString,
-                options: .LiteralSearch,
+        if let _ = renderMessage.string.range(of: "%date") {
+            let dateString = dateFormatter.string(from: message.date as Date)
+            renderMessage.mutableString.replaceOccurrences(
+                of: "%date",
+                with: dateString,
+                options: .literal,
                 range: renderMessage.range)
         }
         
         // FULL FILE PATH
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%fullfilepath",
-            withString: message.fullFilePath ?? "",
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%fullfilepath",
+            with: message.fullFilePath ?? "",
+            options: .literal,
             range: renderMessage.range)
         
         // FILE NAME
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%filename",
-            withString: message.fileName ?? "",
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%filename",
+            with: message.fileName ?? "",
+            options: .literal,
             range: renderMessage.range)
         
         // FUNCTION
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%function",
-            withString: message.function ?? "",
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%function",
+            with: message.function ?? "",
+            options: .literal,
             range: renderMessage.range)
         
         // LINE NUMBER
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%line",
-            withString: String(message.line),
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%line",
+            with: String(message.line),
+            options: .literal,
             range: renderMessage.range)
         
         // COLUMN NUMBER
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%column",
-            withString: String(message.column),
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%column",
+            with: String(message.column),
+            options: .literal,
             range: renderMessage.range)
         
         // LOG MESSAGE
-        let messagePlaceholderRange = (renderMessage.string as NSString).rangeOfString("%message")
+        let messagePlaceholderRange = (renderMessage.string as NSString).range(of: "%message")
         if let messageColor = colors[message.logLevel] where messagePlaceholderRange.location != NSNotFound {
             renderMessage.addAttribute(NSForegroundColorAttributeName, value: messageColor, range: messagePlaceholderRange)
         }
         
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%message",
-            withString: message.text,
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%message",
+            with: message.text,
+            options: .literal,
             range: renderMessage.range)
         
         // LOG LEVEL
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%level",
-            withString: message.logLevel.description,
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%level",
+            with: message.logLevel.description,
+            options: .literal,
             range: renderMessage.range)
         
         // FRAMEWORK
         let frameworkString = message.frameworkIdentifier ?? ""
-        renderMessage.mutableString.replaceOccurrencesOfString(
-            "%framework",
-            withString: frameworkString,
-            options: .LiteralSearch,
+        renderMessage.mutableString.replaceOccurrences(
+            of: "%framework",
+            with: frameworkString,
+            options: .literal,
             range: renderMessage.range)
         
         var transformedMessage = renderMessage
